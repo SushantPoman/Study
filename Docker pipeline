@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    
+    tools {
+        maven 'M3'
+    }
+
+    stages{
+        stage('git clone'){
+            steps{
+                git 'url'
+            }
+        }
+        stage('mvn build'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+        stage('Docker image'){
+            steps{
+                sh 'docker stop ashokitc'
+                sh 'docker rm ashokitc'
+                sh 'docker build -t ashokit .'
+            }
+        }
+        stage('Deployment'){
+            steps{
+                sh 'docker run -d -p 9090:8080 --name ashokitc ashokit'
+            }
+        }
+    }
+}
