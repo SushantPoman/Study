@@ -1,4 +1,9 @@
-## 29-35-SBMS-17-NOV-23 - 
+
+### 07-35-SBMS-13-Oct-23 - Create First project(STS, spring initializer, command prompt), mvn and run
+
+### 21-35-SBMS-07-NOV-23 - Microservice -> New UserService, greet
+
+### 29-35-SBMS-17-NOV-23 - Hibernate -> crate table in mysql using spring, hibernate
 Hibernate is ORM tool, Java object representing table name called as Entity
 - hibernate.cfg.xml - define all the configuration - db url, username, pwd
 - HibernateConfig - class to instantiate SessionFactory
@@ -8,7 +13,7 @@ Hibernate is ORM tool, Java object representing table name called as Entity
 - Dao all the methods manually starting the transaction and taking care about all the operations
 Advantage: No need to write basic sql query, for complex query you can write hquery language
 
-## 30-35-SBMS-20-NOV-23 -
+### 30-35-SBMS-20-NOV-23 - Hibernate -> getAllUsers
 - ddl-auto - create
 - ddl-auto - update 
 - ddl-auto - validate -> migration versioning tools(Flyway, Liquibase) -> migrations of db version
@@ -18,7 +23,7 @@ Never take primitive data type for Entity(table creation) - first record it will
 Problem - if we have two projects/tables/individual services in same database and if we are using above param then wrong primary key will get inserted because they are sharing primary key generation table
 @GeneratedValue(strategy = GenerationType.IDENTITY) - Check from table what was the last primary key and then it will insert next one
 
-## 31-35-SBMS-29-NOV-23
+### 31-35-SBMS-29-NOV-23 - Hibernate -> serializable, getuserById, @Transaction
 ORM - object is directly mapping with your table. you can perform operation on entity using sessionFactory and transaction it will update your table in db.
 Diff(V. imp):
 session.get - directly taking from db
@@ -31,22 +36,22 @@ fail_on_empty_beans - if empty bean is try to convert to json, spring will give 
 2. programmatical - once DML operation is completed, detatched object will commit by using transaction.commit().
 
 
-## 32-35-SBMS-22-NOV-23 - 
+### 32-35-SBMS-22-NOV-23 - Spring DataJpa -> Repository CRUD, mysql connection with Springboot DataJpa
 Due to heavy configuration spring boot suggested to use Spring DataJPA with autoconfiguration
 No need to write - hibernate.cfg.xml, HibernateConfig, Dao - session & transaction mgmt
 Spring DataJpa -> ORM(hibernate)+autoconfiguration
 Repositories - CrudRepository -> PagingAndSorting -> JPA
 Without default constructor ORM tool will not work due to reflection api-53:55
 
-## 33-35-SBMS-23-NOV-23 -
+### 33-35-SBMS-23-NOV-23 - Spring DataJpa -> OrderService, Userservice Crud - fetchDataByColName(Query methods)
 Named query method - 24:04 (Just need to declare the method, internally i)
 Sytax - (Any_name)By_Col_name
 
-## 34-35-SBMS-24-NOV-23 - 
+### 34-35-SBMS-24-NOV-23 - Spring DataJpa -> Userservice Crud - Custom methods using Queries, PagingAndSorting Repository
 nativeQuery = true -> Telling db that no conversion required
 PagingAndSorting Repository - Child class of CrudRepository
 
-## 35-35-SBMS-27-NOV-23 -
+### 35-35-SBMS-27-NOV-23 - Transaction Management -> JDBCTransactionDemo
 If we are using JDBC Statement/PreparedStatement/CallableStatement by defaultly after every statement execution your data is going to be commited(Permanently save). Because of this for which transaction application faced issue from that point it will stop processing and will not rollback previous queries.(E.g. Debit and credit - in this both the stmts has to be success or failure)
 Group of stmt which are dependent on each other called as Unit of work. Unit of work should be successful if both the stmt are success.
 All the stmt should be successful else if any exception occurs then previous stmt should be rollback, this is called as TransactionManagement.
@@ -63,13 +68,13 @@ To define unit of work on method level or class level we use @Transactional
 Spring data - By default every repository is annotated with @Transactional internally it will take care
 If we have two microservices then keep both (userRepo.save(), userRepo.update() and orderRepo.save(), orderRepo.update()) in one method and define that method as @Transactional
 
-## 36-35-SBMS-29-NOV-23
+### 36-35-SBMS-29-NOV-23 - Spring cloud -> Microservice communication(RestTemplate)
 Communicate one ms with another ms, spring offers RestTemplate. supported by Spring boot.
 Similary we were using HttpClient till Spring 4 after that it is deprecated.
 RestTemplate is not developed by us we need to use it in further development using autowired. so we need to create configuration class.
 if we want to use predefined classes(not created by us) then we need to annotate them using @Bean. @Bean annotated methods added in Configuration class will be taken care by IOC.
 
-## 37-35-SBMS-30-NOV-23
+### 37-35-SBMS-30-NOV-23 - Spring cloud -> Swagger documentation
 Spring cloud - Collection of libraries which will solve commonly occured microservice - communication, tracing, fault tolerance(circuit breaker - no downtime), metrics of - application - actuator.
 - Discovery server - internal service communication, external service communication
 - Actuator - metrics(MS up and running, how much memory consuming, traffic about MS)
@@ -84,7 +89,7 @@ Swagger
 api - all the core logic which requires to generate api
 ui - dashboard
 
-## 38-35-SBMS-01-DEC-23
+### 38-35-SBMS-01-DEC-23 - Spring cloud -> Eureka server(Internal MS communication), Horizontal load balancing
 Access eureka server on - http://localhost:8761/
 orderservice.addr=http://ORDERSERVICE -> this is logical name
 Based on logical name eureka server will resolve then it will give you actual url and port no.
@@ -98,7 +103,7 @@ if we change address/port_no then To solve that we will use Api gateway
 EurekaServer -> Once it got hit then it will resolve logical name and redirect to MS
 Changed project - EurekaService, UserService, OrderService
 
-## 39-35-SBMS-04-DEC-23
+### 39-35-SBMS-04-DEC-23 - Spring cloud -> Api gateway(External MS communication)
 Api gateway - It will register all the MS with them and it will give some routes and based on routes it will delegate the request to respective MS
 E.g. Nginx - manually you need to add all the server ip, port no and it becomes hardcoded.
 Spring cloud earlier used zuul proxy developed by netflix(Stoppped further release due to licensing issue), later spring cloud people developed Cloud gateway(Both configuration is same). spring cloud gateway is one of the Api gateway.
@@ -110,7 +115,7 @@ eg. http://localhost:8080(Userservice) -> lb://UserService(Name of MS)
 Changed project - ApiGateway
 
 
-## 40-35-SBMS-05-DEC-23
+### 40-35-SBMS-05-DEC-23 - Spring cloud -> Actuator, Spring boot admin(graphical view)
 Actuator - One of the library offering from the spring cloud, if you want to collect the metrics of the application/monitor your application/Understand traffic of application
 URL - http://localhost:8080/actuator
 By default it will expose very few endpoints, Add following line to expose all the endpoints-
@@ -132,7 +137,7 @@ Without Actuator, admin server will not work.
 Actuator/Spring boot admin - give metrics of application - if we have 100 of MS and want to identify how many instances are running that we can easily do by Admin server.(Monitoring)
 
 
-## 41-35-SBMS-06-DEC-23
+### 41-35-SBMS-06-DEC-23 - Spring cloud -> Sleuth(Tracing), zipkin(Tracing - graphical view)
 In MS environment, one request can hit multiple MS so in that case if get failure from any of the microservice then to find out that we can use Sleuth.
 To trace/debug the request we use Spring cloud Sleuth.(Used for distributed tracing)
 Spring cloud sleuth id is distributed tracing so whenever MS propogating multiple MS then it will create some kind of tracingId. Through this tracingId we are going to be checking all this things.
@@ -147,7 +152,7 @@ Download jar from- https://repo1.maven.org/maven2/io/zipkin/java/zipkin-server/2
 
 
 
-## 42-35-SBMS-08-DEC-23
+### 42-35-SBMS-08-DEC-23 - Spring cloud -> Circuit Breaker - Resilience4j
 To make application reliable and secure we need to use fallback mechanism.
 If something goes wrong then we need to have backup plan, called as fallback mechanism(Abnormally if anything goes wrong)
 To avoid cascade failure of MS this will help you. This is not related to MS but related to architecture.
@@ -207,19 +212,19 @@ Spring cloud->
 
 
 
-## 43-35-SBMS-11-DEC-23
+### 43-35-SBMS-11-DEC-23 - Spring security -> WebMvc, Default authentication, Spring security default generated pwd for html
 Spring security -
 Authentication and Authorization
 Authentication - who you are - Username and password - Oauth2/LDAP/SAMP(IDP.SP)
 Authorization -  what you are - roles(user/admin/client)
 
-## 44-35-SBMS-12-DEC-23
+### 44-35-SBMS-12-DEC-23 - Spring security -> Retrieve pwd from DB (Authentication using DB) using BcryptEncoder
 Tell the spring security that you want to use Db, we will use filters
 Mendotary columns(username, password, enabled, role)
 Spring security provides predefined login form.
 
 
-## 45-35-SBMS-13-DEC-23
+### 45-35-SBMS-13-DEC-23 - Spring security -> Custom login/error/logout form
 In the place of spring login form you need to use custom login form.
 Spring login form takes username and password as form attributes and submit it to the /login.
 So you need to develop custom login form in same way.
@@ -228,7 +233,7 @@ In distributed ecosystem session based authentication is not possible(MS1 runnin
 Due to above problem we are going to use stateless authentication where we can use token.
 Token logic generate by third party libraries like keylock, azure, octas, google authenticator, microsoft authenticator.
 
-## 46-35-SBMS-14-DEC-23
+### 46-35-SBMS-14-DEC-23 - Spring security -> OAuth, JWT Token passing as request headers, internal jwt working
 OAuth - Open Authorization
 Authentication -
 Before 2010
@@ -255,7 +260,7 @@ Interview:
 what is OAuth tool, what is purpose, what kind of token you are using, is it signed?
 For opaque we are using unsigned bcoz they have different encryption algo.
 
-## 47-35-SBMS-15-DEC-23
+### 47-35-SBMS-15-DEC-23 - Deployment -> Docker
 Docker - Comes under IAAS(Infrastructure as a service)
 Development and deployment are working fine but to to run your app it requires something.
 Infrastructure - what things are required to run your app(Java - jdk, mysql, tomcat, kafka)
@@ -288,7 +293,7 @@ docker-compose -f docker-compose.yml down
 To shutdown all the service docker compose(if at same location)
 docker-compose down
 
-## 48-35-SBMS-16-DEC-23
+### 48-35-SBMS-16-DEC-23 - Keycloak
 Keycloak - Identity and access management
 It supports-
 - Simple form login
@@ -311,7 +316,7 @@ Jenkins is used to automate build and deployment process
 
 
 ## Docker:
-Docker is a open source platform for developing, shipping and  running application in  containers.
+Docker is a open source platform for developing, shipping and  running application in  containers. Containers are light weight, isolated environment that package applications and their dependencies. 
 
 - Images - Docker images are the templates that define the container and its dependencices
 - Container - Containers are runtime environments created from docker images
@@ -323,6 +328,7 @@ create img from mvn wrapper:
 ./mvnw spring-boot:build-image "-Dspring-boot.build.image.imageName=dcode007/companyms"
 
 - Embarkx - https://www.youtube.com/watch?v=BLlEgtp2_i8
+- Ashokit - https://www.youtube.com/watch?v=8dccz7ca4FM
 
 ## Feign:
 Declarative web service client designed to make writing HTTP clients easier
