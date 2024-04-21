@@ -61,7 +61,7 @@
 1. how to increase performance of queries
 2. what is indexing
 
-# Agile:
+# Agile
 1. what is process to calculate story points?
 2. Backlog refinement
 3. Spring Review?
