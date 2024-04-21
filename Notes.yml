@@ -301,14 +301,33 @@ It supports-
 - LDAP authentication
 
 
+Kafka:
+Apache kafka is like a communication system that helps different parts of computer system exchange data by publishing and subscribing to topics
 
 
 
 
 
 
+Docker:
+Docker is a open source platform for developing, shipping and  running application in  containers.
+
+Images- Docker images are the templates that define the container and its dependencices
+Container - Containers are runtime environments created from docker images
+Docker enginer - The docker engine is the runtime that runs and manages containers
+Dockerfile -  Is a file that contains instructions to build a Docker image
+DockerHub - DockerHub is cloud based registry that hosts a vast collection of Docker images
+
+create img from mvn wrapper:
+./mvnw spring-boot:build-image "-Dspring-boot.build.image.imageName=dcode007/companyms"
 
 
+Feign:
+Declarative web service client designed to make writing HTTP clients easier
+
+
+Zipkin:
+Is an open-source distributed tracing system
 
 
 
