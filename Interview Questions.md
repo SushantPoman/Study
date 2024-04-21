@@ -15,7 +15,7 @@
 14. Message broker(MQ)
 15. CICD
 16. Deployment
-
+17. Tools(Kafka, Kibana, Splunk, New Relic, Sonarcube, Graphana)
 
 # Java
 1. why string is immutable
@@ -56,12 +56,14 @@
 22. Types of autowiring
 23. Diff between contructor injection and setter injection
 24. unit testing - write junit
+25. Event based architecture
+26. Stubbing in testing
 
 # Database
 1. how to increase performance of queries
 2. what is indexing
 
-# Agile:
+# Agile
 1. what is process to calculate story points?
 2. Backlog refinement
 3. Spring Review?
