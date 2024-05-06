@@ -302,12 +302,24 @@ It supports-
 - Social logins
 - LDAP authentication
 
+## Actuator:
+Provides built in production ready features to monitor and manage your application.
+Features:
+- Built in endpoints
+- Ability to view real time metrics
+
+<img src="images/actuator_endpoints.png" alt="image" width="500" height="auto">
 
 ## Kafka:
 Apache kafka is like a communication system that helps different parts of computer system exchange data by publishing and subscribing to topics.
+<img src="images/kafka_archi.png" alt="image" width="500" height="auto">
+
+- Publishing topics: https://github.com/SushantPoman/OrderService/commit/70aa7903ca3ca5b59bc9ec7f3ac368b22839f567
+- Subscribing topics: https://github.com/SushantPoman/UserService/commit/6701600c8d32b6060b8307d6c93cf2d049887685
 
 References:
-- Durgesh - https://www.youtube.com/results?search_query=kafka+tutorial
+- Official - https://kafka.apache.org/documentation/
+- Durgesh - https://www.youtube.com/watch?v=ei6fK9StzMM
 - AshokIt - https://www.youtube.com/watch?v=19n9usmc2l8
 
 ## Jenkins:
@@ -330,6 +342,9 @@ create img from mvn wrapper:
 - Embarkx - https://www.youtube.com/watch?v=BLlEgtp2_i8
 - Ashokit - https://www.youtube.com/watch?v=8dccz7ca4FM
 
+## Redis cache:
+https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f719309f
+
 ## Feign:
 Declarative web service client designed to make writing HTTP clients easier
 
@@ -341,7 +356,8 @@ Is an open-source distributed tracing system
 - Embarkx - https://www.youtube.com/watch?v=EeQRAxXWDF4&t=1s
 
 
-
+## Java 8:
+https://www.youtube.com/watch?v=mafkhtals0o
 
 
 

@@ -4,7 +4,7 @@
 3. Exception handling
 4. Collections
 5. Multithreading
-6. Design patterns
+6. Design patterns(Saga)
 7. Http api methods, REST API
 8. Spring vs Springboot(Advantages, Disadvantages)
 9. Guidelines to follow while developing API
@@ -16,6 +16,8 @@
 15. CICD
 16. Deployment
 17. Tools(Kafka, Kibana, Splunk, New Relic, Sonarcube, Graphana)
+18. SOLID principles
+
 
 # Java
 1. why string is immutable
@@ -30,6 +32,10 @@
 10. what is pipeline stream
 11. what is lazy loading
 13. what all are collections framework you worked..
+14. checked exceptions vs unchecked exceptions
+15. Internal working of hashmap
+https://www.javatpoint.com/working-of-hashmap-in-java
+16. explain thread lifecycle
 
 # Spring
 1. How can we enable security in api
