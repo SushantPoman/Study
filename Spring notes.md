@@ -312,6 +312,7 @@ Features:
 
 ## Kafka:
 Apache kafka is like a communication system that helps different parts of computer system exchange data by publishing and subscribing to topics.
+
 <img src="images/kafka_archi.png" alt="image" width="500" height="auto">
 
 - Publishing topics: https://github.com/SushantPoman/OrderService/commit/70aa7903ca3ca5b59bc9ec7f3ac368b22839f567
@@ -332,7 +333,7 @@ Docker is a open source platform for developing, shipping and  running applicati
 
 - Images - Docker images are the templates that define the container and its dependencices
 - Container - Containers are runtime environments created from docker images
-- Docker enginer - The docker engine is the runtime that runs and manages containers
+- Docker engine - The docker engine is the runtime that runs and manages containers
 - Dockerfile -  Is a file that contains instructions to build a Docker image
 - DockerHub - DockerHub is cloud based registry that hosts a vast collection of Docker images
 
@@ -355,11 +356,30 @@ Is an open-source distributed tracing system
 
 - Embarkx - https://www.youtube.com/watch?v=EeQRAxXWDF4&t=1s
 
+### Spring boot disadvantages:
+- Lack of Control:
+Spring Boot abstracts away much of the configuration and setup, which can be beneficial for rapid development.
+However, this opinionated design may not suit projects with unique requirements.
+Developers might feel limited in customization due to Spring Boot’s predefined conventions1.
+- Large Deployment File Size:
+Spring Boot creates many unused dependencies, resulting in a larger deployment file.
+This can impact deployment time and resource utilization.
+If minimizing the deployment size is critical, developers need to be cautious23.
+- Conversion Process:
+Converting an existing Spring project into a Spring Boot application can be complex and time-consuming.
+Developers may face challenges when migrating legacy code to Spring Boot23.
+- Not Suitable for Large-Scale Projects:
+While Spring Boot is excellent for microservices and smaller applications, it might not be the best fit for large-scale projects.
+For extensive enterprise-level systems, other Spring frameworks or custom configurations may be more appropriate23.
+Remember that Spring Boot’s benefits often outweigh its disadvantages, especially for smaller projects or when rapid development is crucial. However, understanding these limitations helps make informed decisions when choosing the right framework for your specific use case
 
-## Java 8:
-https://www.youtube.com/watch?v=mafkhtals0o
-
-
-
-
+### Why Spring Boot for Microservices?:
+Spring Boot is an excellent choice for microservices development due to its features:
+- Embedded Server Support: Spring Boot includes embedded servers (like Tomcat or Jetty), simplifying deployment.
+- Load Balancer: It supports load balancing for distributing requests across instances.
+- Auto Configuration: Spring Boot automatically configures components based on conventions.
+- Minimal Code using Annotations: Annotations reduce boilerplate code.
+- Loose Coupling: Microservices can be independently developed and deployed.
+- Dependency Management: Spring Boot manages dependencies efficiently.
+- Open Source: It’s a vibrant open-source community1.
 
