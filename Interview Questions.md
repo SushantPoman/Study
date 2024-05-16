@@ -34,7 +34,6 @@
 13. what all are collections framework you worked..
 14. checked exceptions vs unchecked exceptions
 15. Internal working of hashmap
-https://www.javatpoint.com/working-of-hashmap-in-java
 16. explain thread lifecycle
 
 # Spring
@@ -58,7 +57,7 @@ https://www.javatpoint.com/working-of-hashmap-in-java
 18. what is optional @Pathvariable or @RequestParam and @QueryParam
 19. why to use @ResponseBody
 20. idempotent operation
-21. how to get 100 properties in service layer
+21. how to get 100 properties in service layer(@ConfigurationProperties)
 22. Types of autowiring
 23. Diff between contructor injection and setter injection
 24. unit testing - write junit

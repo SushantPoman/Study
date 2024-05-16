@@ -13,6 +13,8 @@ Hibernate is ORM tool, Java object representing table name called as Entity
 - Dao all the methods manually starting the transaction and taking care about all the operations
 Advantage: No need to write basic sql query, for complex query you can write hquery language
 
+https://github.com/SushantPoman/SpringHibernateDb/tree/main/src/main
+
 ### 30-35-SBMS-20-NOV-23 - Hibernate -> getAllUsers
 - ddl-auto - create
 - ddl-auto - update 
@@ -88,6 +90,7 @@ Eureka- server-client approach. Convert all MS to eureka client. Client will reg
 Swagger
 api - all the core logic which requires to generate api
 ui - dashboard
+https://github.com/HarshaPrimeTrainings/SpringBoot_MicroService_SpringCloud_Security/blob/main/swagger_Userservice/userservice/src/main/java/com/training/userservice/config/SwaggerConfig.java
 
 ### 38-35-SBMS-01-DEC-23 - Spring cloud -> Eureka server(Internal MS communication), Horizontal load balancing
 Access eureka server on - http://localhost:8761/
@@ -101,7 +104,9 @@ EurekaService -> UserService and OrderService - This we called as internal MS co
 (Who are not belonged to MS ecosystem wants to communicate with our MS and because of port and address it became as tight coupling)Angular/React/Android UI wants to communicate with our service - This called as external MS communication
 if we change address/port_no then To solve that we will use Api gateway
 EurekaServer -> Once it got hit then it will resolve logical name and redirect to MS
-Changed project - EurekaService, UserService, OrderService
+- EurekaService - https://github.com/SushantPoman/ApiGateway/tree/main/src/main
+- UserService - https://github.com/SushantPoman/UserService/commit/a3f0ec7fb17bcb998e1b9309ec2b1f7f776169e1
+- OrderService - https://github.com/SushantPoman/OrderService/commit/409463ede68b10195660eb64d41f9e801d73d14d
 
 ### 39-35-SBMS-04-DEC-23 - Spring cloud -> Api gateway(External MS communication)
 Api gateway - It will register all the MS with them and it will give some routes and based on routes it will delegate the request to respective MS
@@ -200,6 +205,8 @@ While creating fallback methods -
 1. Fallback method should be exact same return type as current method
 2. Fallback method and normal mehod params should be same along with Throwable as param
 Changed project -> UserService
+
+https://github.com/SushantPoman/UserService/commit/3a282bd4e975d0173579b5b3250faa11fd3676bd
 
 Spring cloud->
 - Discovery server - MS Inter communication to avoid hard coding of hostname - Eureka server
@@ -301,85 +308,3 @@ It supports-
 - OPENID - OAuth2
 - Social logins
 - LDAP authentication
-
-## Actuator:
-Provides built in production ready features to monitor and manage your application.
-Features:
-- Built in endpoints
-- Ability to view real time metrics
-
-<img src="images/actuator_endpoints.png" alt="image" width="500" height="auto">
-
-## Kafka:
-Apache kafka is like a communication system that helps different parts of computer system exchange data by publishing and subscribing to topics.
-
-<img src="images/kafka_archi.png" alt="image" width="500" height="auto">
-
-- Publishing topics: https://github.com/SushantPoman/OrderService/commit/70aa7903ca3ca5b59bc9ec7f3ac368b22839f567
-- Subscribing topics: https://github.com/SushantPoman/UserService/commit/6701600c8d32b6060b8307d6c93cf2d049887685
-
-References:
-- Official - https://kafka.apache.org/documentation/
-- Durgesh - https://www.youtube.com/watch?v=ei6fK9StzMM
-- AshokIt - https://www.youtube.com/watch?v=19n9usmc2l8
-
-## Jenkins:
-Jenkins is used to automate build and deployment process
-- AshokIt - https://www.youtube.com/watch?v=4cG7dWKbrC8
-
-
-## Docker:
-Docker is a open source platform for developing, shipping and  running application in  containers. Containers are light weight, isolated environment that package applications and their dependencies. 
-
-- Images - Docker images are the templates that define the container and its dependencices
-- Container - Containers are runtime environments created from docker images
-- Docker engine - The docker engine is the runtime that runs and manages containers
-- Dockerfile -  Is a file that contains instructions to build a Docker image
-- DockerHub - DockerHub is cloud based registry that hosts a vast collection of Docker images
-
-create img from mvn wrapper:
-./mvnw spring-boot:build-image "-Dspring-boot.build.image.imageName=dcode007/companyms"
-
-- Embarkx - https://www.youtube.com/watch?v=BLlEgtp2_i8
-- Ashokit - https://www.youtube.com/watch?v=8dccz7ca4FM
-
-## Redis cache:
-https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f719309f
-
-## Feign:
-Declarative web service client designed to make writing HTTP clients easier
-
-- Embarkx - https://www.youtube.com/watch?v=EeQRAxXWDF4&t=1s
-
-## Zipkin:
-Is an open-source distributed tracing system
-
-- Embarkx - https://www.youtube.com/watch?v=EeQRAxXWDF4&t=1s
-
-### Spring boot disadvantages:
-- Lack of Control:
-Spring Boot abstracts away much of the configuration and setup, which can be beneficial for rapid development.
-However, this opinionated design may not suit projects with unique requirements.
-Developers might feel limited in customization due to Spring Boot’s predefined conventions1.
-- Large Deployment File Size:
-Spring Boot creates many unused dependencies, resulting in a larger deployment file.
-This can impact deployment time and resource utilization.
-If minimizing the deployment size is critical, developers need to be cautious23.
-- Conversion Process:
-Converting an existing Spring project into a Spring Boot application can be complex and time-consuming.
-Developers may face challenges when migrating legacy code to Spring Boot23.
-- Not Suitable for Large-Scale Projects:
-While Spring Boot is excellent for microservices and smaller applications, it might not be the best fit for large-scale projects.
-For extensive enterprise-level systems, other Spring frameworks or custom configurations may be more appropriate23.
-Remember that Spring Boot’s benefits often outweigh its disadvantages, especially for smaller projects or when rapid development is crucial. However, understanding these limitations helps make informed decisions when choosing the right framework for your specific use case
-
-### Why Spring Boot for Microservices?:
-Spring Boot is an excellent choice for microservices development due to its features:
-- Embedded Server Support: Spring Boot includes embedded servers (like Tomcat or Jetty), simplifying deployment.
-- Load Balancer: It supports load balancing for distributing requests across instances.
-- Auto Configuration: Spring Boot automatically configures components based on conventions.
-- Minimal Code using Annotations: Annotations reduce boilerplate code.
-- Loose Coupling: Microservices can be independently developed and deployed.
-- Dependency Management: Spring Boot manages dependencies efficiently.
-- Open Source: It’s a vibrant open-source community1.
-

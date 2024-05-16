@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=mafkhtals0o
 ## Design patterns:
 https://www.youtube.com/watch?v=neSp9gap7Rw
 
-Factory - BeanFactory(IOC container of spring), ActiveMqConnectionFactory
+Factory - BeanFactory(IOC container of spring), ActiveMqConnectionFactory, StandardServiceRegistryBuilder
 Builder - RestTemplate, NewTopic(Kafka)
 Singleton - Logging service, utility classes, configuration(properties, environment variables, feature toggles), caching(Implement a singleton cache manager to store frequently accessed data in memory.) Prototype(When you need a new instance of a bean every time it’s requested, such as maintaining per-client or per-request state, use the prototype scope) - user session, shopping cart, generate unique tokens, random numbers
 Dependency injection - Autowired
@@ -15,8 +15,13 @@ Observer -
 
 ### Saga design pattern:
 
-### Hashmap:
-Internal working of hashmap - https://www.javatpoint.com/working-of-hashmap-in-java
+### Collections:
+- ArrayList vs LinkedList - 
+    - https://www.javatpoint.com/difference-between-arraylist-and-linkedlist
+    - https://www.geeksforgeeks.org/arraylist-vs-linkedlist-java/
+- Internal working of hashmap - https://www.javatpoint.com/working-of-hashmap-in-java
+- Internal working of hashset - https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
+- Synchronized collection - https://medium.com/@the_infinity/javas-synchronized-collections-07712ae3b2cb
 
 ### How to make java class as immutable:
 Immutable class is a class which is once created, it’s contents can not be changed. Sometimes we need to create Immutable classes for some purposes such as not allowing outside world to modify the objects. We have several inbuilt classes in Java also. Some of them are:
@@ -100,3 +105,7 @@ public class ReportController {
 
 When a client requests a report type (e.g., /generate-report?type=pdf), the controller will create the corresponding report using the factory pattern.
 Remember that the factory pattern allows you to encapsulate object creation logic and provides a flexible way to add new report types without modifying existing code.
+
+Hibernate example:
+
+<img src="images/j_dp_factory.png" alt="image" width="500" height="auto">

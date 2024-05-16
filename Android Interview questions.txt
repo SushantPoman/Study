@@ -1,0 +1,116 @@
+Interview Questions:
+
+1. Design patterns in android?
+	-> Builder pattern, Singleton pattern, Dependency Injection pattern, Adapter pattern, Facade pattern, Observer pattern, Command pattern.
+	https://www.raywenderlich.com/18409174-common-design-patterns-and-app-architectures-for-android
+2. Explain Launch modes.
+	-> Standard, Single Top, Single Task, Single Instance
+	https://medium.com/mindorks/android-launch-mode-787d28952959
+3. Architecture patterns in android /  MVP vs MVVM?
+4. Why to use room over sqliteDB API
+5. Steps to use Navigation components(Navgraph)
+6. What is diff between value and postValue(Livedata)?
+7. What is intent filter?
+8. What is intent & types of intent?
+9. What happens when we use ViewModelProvider() and why do we not create instance using new keyword?
+10. Steps to implement maps
+	https://developers.google.com/maps/documentation/android-sdk/start
+11. What is viewmodel and internal working 
+12. Explain OOPS concepts
+13. lateinit vs lazy
+14. Scope functions in kotlin?
+	https://blog.mindorks.com/using-scoped-functions-in-kotlin-let-run-with-also-apply
+15. Bundle vs APK?
+16. Hashset vs Set / LinkedList vs List / HashMap vs Map
+17. Explain method overloading and method overriding.
+18. Serialization vs Parcelable?
+19. apply vs commit shared preference - commit requtrns boolean value
+	-> apply() - returns void, It was added in 2.3, it saves without returning a boolean indicating success or failure.
+	commit() - returns boolean value, It returns true if the save works, false otherwise. apply() was added as the android dev team noticed that most no one took notice of the return value, so apply is faster.
+20. What is data store?
+21. Advantages of kotlin over java?
+22. Java 8 interface?
+	https://beginnersbook.com/2017/10/java-8-interface-changes-default-method-and-static-method/
+23. throws vs throw?
+24. final vs finally vs finalize?
+25. kotlin const vs val?
+26. What is Jetpack libraries and how many you have use it?
+	Room, Viewmodel, lifecycle aware components, livedata, navigation, workmanager, databinding, constraintLayout, hilt
+27. Why do we need jetpack libraries, benefits/use of it?
+	https://developer.android.com/jetpack
+28. DI as Dagger2 or koin
+29. How to find out memory leaks in app?
+30. If activity opening slowly then how do you investigate that?
+31. Rest APi - get vs post
+32. Have Edittext(Textwatcher) and textview(automatically reflects what u write in edittext) so where(which activity lifecycle method) would you initialize this textwatcher(editext)?
+33. Does onDestroy call every time even when app automatically killed by system?
+34. If fragment is inside activity will it get destroyed after activity destroyed?
+35. Backstack manager of fragment
+36. Differece between fragment- add and replace method when it starts / Fragment transactions how it works?
+37. Singleton thread management works in dagger2
+38. How to use private scoping for modules inside dagger2
+39. Why do we use livedata? (db - To automatically update?)
+40. How to make sure that while doing concurrency, memory leak will not happen?
+41. Public key pinning - Secure HTTP api calls
+http://www.codeplayon.com/2020/08/android-security-ssl-pinning/
+42. Kotlin - Sealed class in detail & inline function
+43. Cachemanager how it works inside repository mmvm?
+44. What is firebase config file
+45. What flags are available inside intent filter AndroidManifest file
+46. SharedViewModel for sharing data between activity and fragment?
+47. Rxjava vs coroutines?
+48. How room does migrations with existing db?
+49. Jetpack compose?
+
+
+New->>>>
+System design?
+Data structures and algorithms?
+Google -> graphs
+Fb -> Arrays or string manipulation
+Multimodule?
+Coroutines+Flow
+
+Interview Questions by Amit shekhar(Mindorks):
+https://github.com/MindorksOpenSource/android-interview-questions
+
+Arnav Gupta:-
+Real world 
+		https://www.youtube.com/watch?v=geX2cR74WP4&list=PLl4Y2XuUavmuH6xZKU7I5AdZkDs4JyWUN
+Android Jetpack, RecyclerView, CardView, Fragments, BottomNaviation, Retrofit, Junit
+		https://github.com/championswimmer/GithubTrendingNow_Android
+Dagger
+		https://github.com/championswimmer/Navi_Imgur_App
+Activity lifecyle
+
+
+Testing Junit:
+https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics#10
+
+Espresso:
+https://classroom.udacity.com/courses/ud855/lessons/f0084cc7-2cbc-4b8e-8644-375e8c927167/concepts/d37b0c0b-0fbc-4fe6-9d69-d5f1415b318d
+
+
+
+Push n pop -- compose
+
+ 
+
+Queries:
+1. Consul deprecated?
+
+
+Peepal:
+Event based architecture
+Stubbing in testing
+Kafka
+Kibana
+Splunk
+New Relic
+Sonarcube
+Graphana
+If your application is down or having an issue, how will you send alert, how you put threshold - kafka
+
+
+TODO:
+Oracle vs mysql vs postgresql
