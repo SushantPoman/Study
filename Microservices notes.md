@@ -27,6 +27,41 @@ For extensive enterprise-level systems, other Spring frameworks or custom config
 Remember that Spring Boot’s benefits often outweigh its disadvantages, especially for smaller projects or when rapid development is crucial. However, understanding these limitations helps make informed decisions when choosing the right framework for your specific use case
 
 
+### Bean lifecycle:
+In Spring, the bean lifecycle refers to the stages a bean goes through from its instantiation to its destruction. Let’s explore this process:
+1.	Bean Definition Acquisition:
+    - The Spring container reads the bean definitions from configuration files (such as XML or Java-based configuration).
+    - It acquires the necessary information about the beans, including their class, properties, and lifecycle callbacks.
+2.	Bean Creation and Instantiation:
+    - The Spring container creates an instance of the bean based on the bean definition.
+    - It uses the bean’s class and constructor to instantiate the object.
+    - Dependencies are injected into the bean during this phase.
+3.	Populating Bean Properties:
+    - After instantiation, Spring sets the properties of the bean.
+    - Property values are either directly injected or resolved from external configuration files.
+4.	Post-Initialization:
+    - If the bean implements the InitializingBean interface or defines an init-method, Spring calls the corresponding method.
+    - This phase allows you to perform any custom initialization logic for the bean.
+5.	Ready to Serve:
+    - The bean is now fully initialized and ready for use.
+    - It can be injected into other components or accessed by the application.
+6.	Pre-Destroy:
+    - When the Spring container is shutting down (e.g., during application shutdown), it calls the bean’s destroy-method (if defined).
+    - Use this phase to release resources or perform cleanup tasks.
+In summary, the Spring container manages the entire lifecycle of a bean, from creation to destruction. You can customize this lifecycle by implementing callback methods or using annotations.
+- https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring/
+- https://digitalocean.com/community/tutorials/spring-bean-life-cycle 
+
+
+### REST API Design Guidelines:
+https://www.javaguides.net/2018/06/restful-api-design-best-practices.html#google_vignette
+https://medium.com/@avocadi/building-restful-apis-with-spring-boot-a-comprehensive-guide-2a7bf72aeea6
+
+### Scopes in spring:
+https://www.baeldung.com/spring-bean-scopes
+https://jayamaljayamaha.medium.com/bean-scopes-in-java-springboot-e1e3c5874b51 - Image
+https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
+
 ## Actuator:
 Provides built in production ready features to monitor and manage your application.
 Features:
@@ -54,6 +89,15 @@ Declarative web service client designed to make writing HTTP clients easier
 Is an open-source distributed tracing system
 
 - Embarkx - https://www.youtube.com/watch?v=EeQRAxXWDF4&t=1s
+
+
+### Zookeeper used to manage topics/partition/cluster using api gateway technique.
+
+
+AutoConfiguration:
+- property management(application.properties/ym) -
+- dependency management(pom.xml) -
+
 
 ## Kafka:
 Apache kafka is like a communication system that helps different parts of computer system exchange data by publishing and subscribing to topics.

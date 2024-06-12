@@ -63,6 +63,8 @@
 24. unit testing - write junit
 25. Event based architecture
 26. Stubbing in testing
+27. Scopes (Singleton, prototype, session, request, application)
+28. Pessimistic Locking vs Optimistic Locking in JPA
 
 # Database
 1. how to increase performance of queries

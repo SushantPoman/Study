@@ -1,7 +1,8 @@
 Spring boot
 
 07-35-SBMS-13-Oct-23 - Create First project ways (STS, spring initializer, command prompt), mvn, run jar/war file
-
+08                   - Build application using IDE STS and package structure
+09                   - AutoConfiguration
 
 
 21-35-SBMS-07-NOV-23 - Microservice -> New UserService, greet
