@@ -4,19 +4,19 @@
 https://www.youtube.com/watch?v=mafkhtals0o
 
 
-Tell me about yourself:
-qualification
-skillset working on java, spring and springboot and tools like eureka, api gateway, actuator, resilience4j, redis, prometheus and kafka
-domain - currently working on telecom.. and having exp in ecommerce domain
-achievement - I can work as independent as well as a team member
+Tell me about yourself:- 
+qualification\
+skillset working on java, spring and springboot and tools like eureka, api gateway, actuator, resilience4j, redis, prometheus and kafka\
+domain - currently working on telecom.. and having exp in ecommerce domain\
+achievement - I can work as independent as well as a team member.\
 That's it from my side, please let me know if u r looking for any other information
 
-why java?
-portability - can run on any platform and it is opensource(free)
-security - it protects the customers from malicious script injection
-strong oops concepts - reusablity, performance etc.
-robust - it's reliable and efficient
-wildely used - simple prog. lang and easy to learn
+why java?\
+portability - can run on any platform and it is opensource(free)\
+security - it protects the customers from malicious script injection\
+strong oops concepts - reusablity, performance etc.\
+robust - it's reliable and efficient\
+wildely used - simple prog. lang and easy to learn\
 
 data types:
 Primitive -
@@ -30,9 +30,10 @@ Primitive -
 - char: A 16-bit type that stores a single character or an ASCII value.
 Non primitive - String, Array, Class, Interface and Enum
 
-Exception and types:
-How to handle the error and represent to end user.
+Exception and types:\
+How to handle the error and represent to end user.\
 Checked - it should be declare and we should handle the exception and we need to throw the error to base class. if we can not handle compiler will throw the error.
+
     try{
         File file = new File("ab.txt");
         Scanner scanner = new Scanner(file);
@@ -40,6 +41,7 @@ Checked - it should be declare and we should handle the exception and we need to
         sysout("file not found");
     }
 Unchecked - this should not be declared in the method signature and it can be thrown by any other method. compiler will not generate any error if they are not handled.
+
     try{
         File file = new File("ab.txt");
         Scanner scanner = new Scanner(file);
@@ -47,8 +49,8 @@ Unchecked - this should not be declared in the method signature and it can be th
         throw new RuntimeException(id);
     }
 
-diff between class and interface
-A class contains properties, methods and constructors where as interface contains only abstract methods which has only signatures without any implementation.
+diff between class and interface\
+A class contains properties, methods and constructors where as interface contains only abstract methods which has only signatures without any implementation.\
 E.g Bank account stmt download(Abstract method - downloadStmt(type, data) ) - pdf format, csv format, json format
 
 Normal thread vs daemon thread
@@ -90,30 +92,29 @@ Interfaces can only contains abstract methods and we can't write non abstract me
 
 Arrays vs LinkedList:
 
-Feature                 Array           Linkedlist
-Data storage            Contigoues      Non contigoues memory
-Access efficiency       High            Low
-Insertion/Deletion      Low             High
-Order of data           Important       Not Important
-E.g. (cases)            Only retrieval  Update data, add, remove
+    Feature                 Array           Linkedlist
+    Data storage            Contigoues      Non contigoues memory
+    Access efficiency       High            Low
+    Insertion/Deletion      Low             High
+    Order of data           Important       Not Important
+    E.g. (cases)            Only retrieval  Update data, add, remove
 
-Hashtable:
+Hashtable:\
 It's a data structure used to store key and value pair. Its an efficient data structure for storing and retrieving the data as we can access the data in constant time.
 - put(key, value) -> going to insert data in HashTable -> new bucket and add this item to the bucket
 - get(key) -> based on hashcode it retrievs the data
 - remove(key) -> removed the key and value pair from the hash table
 
 Priority queue:
-It's an operating system feature.
-Its also data structure that stores the elements along with their priorities.(how to create priority queue, set priority). It allows efficient of the
-element retrieval based on priority.Schedule tasks we can use this.
+It's an operating system feature.\
+Its also data structure that stores the elements along with their priorities.(how to create priority queue, set priority). It allows efficient of the element retrieval based on priority.Schedule tasks we can use this.\
 E.g. -> Banking sector -> Fund Transfer -> IMPS(Immediate), RTGS(Huge amount), NEFT(Take time and less money)
 
 Heap memory and Stack memory:
 
-java.lang.OutOfMemoryException - common problem in big enterprise application
-Don't have memory to create object ->
-Drawaback of java - garbage collection algorithm(how it works internally)
+java.lang.OutOfMemoryException - common problem in big enterprise application\
+Don't have memory to create object ->\
+Drawaback of java - garbage collection algorithm(how it works internally)\
 memory problem only comes on heap memory.
 
 - Stack memory contains local variables like primitives, int, float, decimal etc and reference to the objects in the heap and also method parameters for classes.
@@ -144,9 +145,8 @@ Creating order with two products -> UseCase
     7th ..                                                                      }
 Garbage collector don't know the scope of order, cust, service until we define finally.. it will pile up and it will throw OutOfMemoryExceptions
 
-What is multithreading:
-Is a programming concept, allows multiple tasks to be executed concurrently. In java multithreading can be implemented using Thread class. A
-thread object represents a single thread of execution.
+What is multithreading:\
+Is a programming concept, allows multiple tasks to be executed concurrently. In java multithreading can be implemented using Thread class. A thread object represents a single thread of execution.\
 Advantages:
 - increased performance
 - improved responsiveness
@@ -180,7 +180,7 @@ Collections(uses):
             while(item.hasNext()){
                 item.remove();
         }
-- Convert list into an array
+- Convert list into an array\
     int[] intArray = ArrayUtils.toPrimitive(myList.toArray(new Integer[0]));
 - Collection.nCopies() -> can use while testing for multiple copies
     - It is going to return an immutable list which contains "n" copies of given object
@@ -195,7 +195,7 @@ Java 8 features:
 Functional programming
 
 Optional keyword in java:
-To avoid NullPointerException in Java - we can use optional keyword
+To avoid NullPointerException in Java - we can use optional keyword\
 Product prod = Product.getProduct("iPhone14");
 
 why static and default method in interface java8
