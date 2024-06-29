@@ -1,10 +1,19 @@
 Spring boot
 
 07-35-SBMS-13-Oct-23 - Create First project ways (STS, spring initializer, command prompt), mvn, run jar/war file
-08                   - Build application using IDE STS and package structure
-09                   - AutoConfiguration
-
-
+08-35-SBMS-16-Oct-23 - Build application using IDE STS and package structure
+09-35-SBMS-17-Oct-23 - AutoConfiguration (Paid started)
+10-35-SBMS-18-Oct-23 - 
+11-35-SBMS-19-Oct-23 - 
+12-35-SBMS-20-Oct-23 -
+13-35-SBMS-25-Oct-23 -
+14-35-SBMS-26-Oct-23 -
+15-35-SBMS-27-Oct-23 -
+16-35-SBMS-30-Oct-23 -
+17-35-SBMS-31-Oct-23 -
+18-35-SBMS-01-NOV-23 -
+19-35-SBMS-02-NOV-23 -
+20-35-SBMS-03-NOV-23 -
 21-35-SBMS-07-NOV-23 - Microservice -> New UserService, greet
 
 29-35-SBMS-17-NOV-23 - Hibernate -> crate table in mysql using spring, hibernate

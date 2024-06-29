@@ -4,21 +4,21 @@
 https://www.youtube.com/watch?v=mafkhtals0o
 
 
-Tell me about yourself:- 
+### Tell me about yourself:- 
 qualification\
 skillset working on java, spring and springboot and tools like eureka, api gateway, actuator, resilience4j, redis, prometheus and kafka\
 domain - currently working on telecom.. and having exp in ecommerce domain\
 achievement - I can work as independent as well as a team member.\
 That's it from my side, please let me know if u r looking for any other information
 
-why java?\
+### why java?\
 portability - can run on any platform and it is opensource(free)\
 security - it protects the customers from malicious script injection\
 strong oops concepts - reusablity, performance etc.\
 robust - it's reliable and efficient\
 wildely used - simple prog. lang and easy to learn\
 
-data types:
+### data types:
 Primitive -
 - byte: An 8-bit signed. Its range is from -128 to 127 (inclusive).
 - short: A 16-bit signed. It can hold values from -32,768 to 32,767.
@@ -30,7 +30,7 @@ Primitive -
 - char: A 16-bit type that stores a single character or an ASCII value.
 Non primitive - String, Array, Class, Interface and Enum
 
-Exception and types:\
+### Exception and types:\
 How to handle the error and represent to end user.\
 Checked - it should be declare and we should handle the exception and we need to throw the error to base class. if we can not handle compiler will throw the error.
 
@@ -49,16 +49,16 @@ Unchecked - this should not be declared in the method signature and it can be th
         throw new RuntimeException(id);
     }
 
-diff between class and interface\
+### diff between class and interface\
 A class contains properties, methods and constructors where as interface contains only abstract methods which has only signatures without any implementation.\
 E.g Bank account stmt download(Abstract method - downloadStmt(type, data) ) - pdf format, csv format, json format
 
-Normal thread vs daemon thread
+### Normal thread vs daemon thread
 - A thread created by user/application/thread pool i.e. known as normal thread and JVM will take care(create, maintain and terminate) about this.
 - These are the thread created by operating system to provide services to normal threads. They are low priority thread and only needed while user
 threads are running. once the task is over JVM will terminate them even though daemon thread still running.(called as sema phores or monitors)
 
-OOPS concepts:
+### OOPS concepts:
 - Abstraction - hide implemention
 - Encapsulation - providing the abstraction like getters/setters and constructors
 - Inheritance -
@@ -66,7 +66,7 @@ OOPS concepts:
 - Overloading - multiple methods with same name and different parameters(prepare car - classic, suv, )
 - Overriding - same params and same method name - functionality differs(download stmt)
 
-Difference between == and equals method:
+### Difference between == and equals method:
 == supports shallow comparison(check memory location) and equals supports Deep comparison(check value)
 
     String s1 = "hello";
@@ -76,7 +76,7 @@ Difference between == and equals method:
     sysout("s1 == s2"+ s1==s2); //false
     sysout("s1 == s3"+ s1==s3); //true
 
-Abstract class vs Interface
+### Abstract class vs Interface
 Abstract classes are similar to normal classes but they can have abstract(only signature) methods which can not be instantiated.
 Interfaces can only contains abstract methods and we can't write non abstract method inside interface
 
@@ -90,7 +90,7 @@ Interfaces can only contains abstract methods and we can't write non abstract me
 - Abstract class eg: baseController for error cases handling
 - Interface eg: service layer implementation
 
-Arrays vs LinkedList:
+### Arrays vs LinkedList:
 
     Feature                 Array           Linkedlist
     Data storage            Contigoues      Non contigoues memory
@@ -99,19 +99,18 @@ Arrays vs LinkedList:
     Order of data           Important       Not Important
     E.g. (cases)            Only retrieval  Update data, add, remove
 
-Hashtable:\
+### Hashtable:\
 It's a data structure used to store key and value pair. Its an efficient data structure for storing and retrieving the data as we can access the data in constant time.
 - put(key, value) -> going to insert data in HashTable -> new bucket and add this item to the bucket
 - get(key) -> based on hashcode it retrievs the data
 - remove(key) -> removed the key and value pair from the hash table
 
-Priority queue:
+### Priority queue:
 It's an operating system feature.\
 Its also data structure that stores the elements along with their priorities.(how to create priority queue, set priority). It allows efficient of the element retrieval based on priority.Schedule tasks we can use this.\
 E.g. -> Banking sector -> Fund Transfer -> IMPS(Immediate), RTGS(Huge amount), NEFT(Take time and less money)
 
-Heap memory and Stack memory:
-
+### Heap memory and Stack memory:
 java.lang.OutOfMemoryException - common problem in big enterprise application\
 Don't have memory to create object ->\
 Drawaback of java - garbage collection algorithm(how it works internally)\
@@ -145,7 +144,7 @@ Creating order with two products -> UseCase
     7th ..                                                                      }
 Garbage collector don't know the scope of order, cust, service until we define finally.. it will pile up and it will throw OutOfMemoryExceptions
 
-What is multithreading:\
+### What is multithreading:\
 Is a programming concept, allows multiple tasks to be executed concurrently. In java multithreading can be implemented using Thread class. A thread object represents a single thread of execution.\
 Advantages:
 - increased performance
@@ -160,7 +159,7 @@ Avg 10 million people have home loan in pune -> RBI increased ROI 9.5 to 9.8 -> 
                                                 next 1000 -> thread2
         }
 
-Collections(uses):
+### Collections(uses):
 - Main benefits of colleciton framework:
     - Reusabliity - Common classes and common util methods
     - Quality(Performance) - Code already tested an easy to write
@@ -191,16 +190,14 @@ Collections(uses):
 - Collection.Singleton
     - It created an immutable set over a specified collection
 
-Java 8 features:
-Functional programming
+### Java 8 features:
+- Functional programming
 
-Optional keyword in java:
+- Optional keyword in java:
 To avoid NullPointerException in Java - we can use optional keyword\
 Product prod = Product.getProduct("iPhone14");
 
-why static and default method in interface java8
-
-Default Methods:
+#### Default Methods:
 - Default methods allow you to add new functionality to existing interfaces without breaking the code in classes that implement those interfaces.
 - They provide default implementations that can be optionally overridden by implementing classes.
 - Use cases: Backward compatibility: You can extend an interface’s functionality without affecting already implemented classes.
@@ -220,7 +217,7 @@ Default Methods:
         myObj.regularMethod(); // Output: Regular method implementation
         myObj.defaultMethod(); // Output: Default method implementation
 
-Static Methods
+#### Static Methods
 - Static methods in interfaces are similar to static methods in classes.
 - They can be invoked on the interface itself without requiring an instance of the interface.
 - Purpose: Organizing utility methods related to the interface.
@@ -235,43 +232,23 @@ Static Methods
         }
         MyInterface.staticMethod(); // Output: Static method implementation
 
-These features enhance the flexibility and expressiveness of Java interfaces, making them more powerful and versatile
-
-
-Data structure is a way to store and organize information appropriately, so that it can be used efficiently.
-
-Hashmap internal working:
-https://www.youtube.com/watch?v=sw-j_ETGBEo&list=PL0zysOflRCen9SPmMO2XN1I2S9m96G_dx&index=3
-
-
-## Design patterns:
-https://www.youtube.com/watch?v=neSp9gap7Rw
-
-- Factory - BeanFactory(IOC container of spring), ActiveMqConnectionFactory, StandardServiceRegistryBuilder
-- Builder - RestTemplate, NewTopic(Kafka)
-- Singleton - Logging service, utility classes, configuration(properties, environment variables, feature toggles), caching(Implement a singleton cache manager to store frequently accessed data in memory.) Prototype(When you need a new instance of a bean every time it’s requested, such as maintaining per-client or per-request state, use the prototype scope) - user session, shopping cart, generate unique tokens, random numbers
-- Dependency injection - Autowired
-- Observer -
-
-## SOLID principles:
-- Single Responsibility Principle
-- Open-Closed Principle
-- Liskov Substitution Principle 
-- Interface Segregation Principle
-- Dependency Inversion Principle
-https://medium.com/@javatechie/solid-design-principle-java-ae96a48db97
-Spring boot - https://numericaideas.com/blog/solid-principles-in-spring-boot/
-https://medium.com/@saygiligozde/applying-solid-principles-to-spring-boot-applications-191d7e50e1b3
-
-### Saga design pattern:
+These features enhance the flexibility and expressiveness of Java interfaces, making them more powerful and versatile.
 
 ### Collections:
 - ArrayList vs LinkedList - 
     - https://www.javatpoint.com/difference-between-arraylist-and-linkedlist
     - https://www.geeksforgeeks.org/arraylist-vs-linkedlist-java/
-- Internal working of hashmap - https://www.javatpoint.com/working-of-hashmap-in-java
-- Internal working of hashset - https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
-- Synchronized collection - https://medium.com/@the_infinity/javas-synchronized-collections-07712ae3b2cb
+- Internal working of hashmap 
+    - https://www.javatpoint.com/working-of-hashmap-in-java
+    - https://www.youtube.com/watch?v=sw-j_ETGBEo&list=PL0zysOflRCen9SPmMO2XN1I2S9m96G_dx&index=3
+    - Hashing(&)
+        - https://madformath.com/calculators/basic-math/base-converters/decimal-to-binary-converter-with-steps/
+decimal-to-binary-converter-with-steps#calc43
+        - https://www.freecodecamp.org/news/java-operator-and-or-logical-operators/
+- Internal working of hashset 
+    - https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
+- Synchronized collection 
+    - https://medium.com/@the_infinity/javas-synchronized-collections-07712ae3b2cb
 
 ### Comparable vs comparator
 Comparable:
@@ -315,9 +292,8 @@ Threads go through various stages or phases during their lifetime. At any given 
     - A thread terminates due to either of the following reasons:
     - It exits normally after its code has been executed.
     - An unusual event occurs, such as an unhandled exception or a segmentation fault.
-In Java, you can use the Thread.getState() method to get the current state of a thread. The java.lang.Thread.State enum defines constants for each thread state
-
-
+In Java, you can use the Thread.getState() method to get the current state of a thread. The java.lang.Thread.State enum defines constants for each thread state.\
+yeild(), sleep()
 
 ### How to make java class as immutable:
 Immutable class is a class which is once created, it’s contents can not be changed. Sometimes we need to create Immutable classes for some purposes such as not allowing outside world to modify the objects. We have several inbuilt classes in Java also. Some of them are:
@@ -331,77 +307,68 @@ Steps:
 https://www.geeksforgeeks.org/create-immutable-class-java/  
 
 
-### Factory design pattern:
-The factory design pattern is a creational design pattern that provides an interface for creating objects in a super class but allows subclasses to alter the type of objects that will be created. In Spring Boot applications, the factory pattern can be quite useful when different subtypes of objects are needed. Let’s explore an example of how you might use the factory pattern in a Spring Boot application.
 
-Suppose you’re building a Report Microservice using Spring Boot. For this example, let’s assume you have a REST controller with a GET endpoint that provides data for different types of report requests. Here’s how you can apply the factory pattern:
+## SOLID principles:
+1. Single Responsibility Principle I
+    - A class should have only one reason to change
+    - eg. generate report, send report
+    -   https://medium.com/@saygiligozde/applying-solid-principles-to-spring-boot-applications-191d7e50e1b3
 
-Define an Abstract Report Class: First, create an abstract Report class that defines the common behavior for all report types. This class could have methods like generateReport() or fetchData(). Subclasses will implement these methods to provide specific functionality for each report type.
-Java
+2. Open-Closed Principle
+    - Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification
+    - eg. spring's dependency injection Leverage Spring's DI mechanism to inject different implementations of interfaces without modifying the client class, DiscountStrategy
+    - https://numericaideas.com/blog/solid-principles-in-spring-boot/
 
-public abstract class Report {
-    public abstract void generateReport();
-}
-AI-generated code. Review and use carefully. More info on FAQ.
-Create Concrete Report Types: Next, create concrete report classes that extend the Report class. Each subclass will implement the generateReport() method according to its specific requirements. For example:
-Java
+3. Liskov Substitution Principle
+    - Derived or child classes must be substitutable for their base or parent classes"
+    - e.g. https://medium.com/@javatechie/solid-design-principle-java-ae96a48db97
 
-public class PDFReport extends Report {
-    @Override
-    public void generateReport() {
-        // Logic to generate a PDF report
-        System.out.println("Generating PDF report...");
-    }
-}
+4. Interface Segregation Principle
+    - Do not force any client to implement an interface which is irrelevant to them
+    - e.g https://amrtechuniverse.com/solid-principles-in-spring-boot
 
-public class ExcelReport extends Report {
-    @Override
-    public void generateReport() {
-        // Logic to generate an Excel report
-        System.out.println("Generating Excel report...");
-    }
-}
-AI-generated code. Review and use carefully. More info on FAQ.
-Create a Report Factory: Now, let’s create a factory class that produces instances of different report types based on user input. This factory class will encapsulate the logic for creating specific report objects.
-Java
+5. Dependency Inversion Principle
+    - Must use abstraction (abstract classes and interfaces) instead of concrete implementations. High-level modules should not depend on the low-level module but both should depend on the abstraction
+    - https://numericaideas.com/blog/solid-principles-in-spring-boot/
 
-public class ReportFactory {
-    public Report createReport(String reportType) {
-        if ("pdf".equalsIgnoreCase(reportType)) {
-            return new PDFReport();
-        } else if ("excel".equalsIgnoreCase(reportType)) {
-            return new ExcelReport();
-        } else {
-            throw new IllegalArgumentException("Invalid report type: " + reportType);
-        }
-    }
-}
-Usage in Controller: Finally, in your REST controller, you can use the ReportFactory to create the appropriate report based on user input:
-Java
+### Saga design pattern:
 
-@RestController
-public class ReportController {
-    private final ReportFactory reportFactory;
+## Design patterns:
+https://www.youtube.com/watch?v=neSp9gap7Rw
 
-    public ReportController(ReportFactory reportFactory) {
-        this.reportFactory = reportFactory;
-    }
+### Creational:
+1. Builder
+    - Construct a complex object from simple objects using step-by-step approach
+    - It's especially useful when you need to create an object with lots of possible configuration options. 
+    - e.g. Spring(Kafka - topicBuilder while generating NewTopic, Servlet -SpringApplicationBuilder), Android (NotificaitonBuilder, AlertDialogBuilder)
+    - SpringApplicationBuilder - Add more sources (configuration classes and components) to this application
 
-    @GetMapping("/generate-report")
-    public ResponseEntity<String> generateReport(@RequestParam String type) {
-        try {
-            Report report = reportFactory.createReport(type);
-            report.generateReport();
-            return ResponseEntity.ok("Report generated successfully.");
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("Invalid report type: " + type);
-        }
-    }
-}
+2. Factory
+    - Define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. 
+    - Factory Method Pattern allows the sub-classes to choose the type of objects to create. It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code.. 
+    - e.g. slf4j.LoggerFactory, SessionFactory, BeanFactory, ReportFactory(Custom)
 
-When a client requests a report type (e.g., /generate-report?type=pdf), the controller will create the corresponding report using the factory pattern.
-Remember that the factory pattern allows you to encapsulate object creation logic and provides a flexible way to add new report types without modifying existing code.
+3. Singleton
+    - Ensures that only one object of its kind exists and provides a single point of access to it for any other code
+    - e.g. Logging service, utility classes, configuration (properties, environment variables, feature toggles), caching (Implement a singleton cache manager to store frequently accessed data in memory).
 
-Hibernate example:
+4. Prototype
+    - Cloning of an existing object instead of creating new one and can also be customized as per the requirement
+    - When you need a new instance of a bean every time it's requested, such as maintaining per-client or per-request state, use the prototype scope
+    - e.g. user session, shopping cart, generate unique tokens, random numbers
 
-<img src="images/j_dp_factory.png" alt="image" width="500" height="auto">
+### Structural:
+
+1. Adapter
+    - Attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.
+    
+### Behavioural:
+
+1. Chain of responsibility
+    - Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain
+
+
+Java 11:
+https://www.baeldung.com/java-11-new-features
+https://www.interviewbit.com/blog/java-11-features/
+

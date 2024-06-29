@@ -1,6 +1,13 @@
 
 ### 07-35-SBMS-13-Oct-23 - Create First project(STS, spring initializer, command prompt), mvn and run
 
+### 09-35-SBMS-17-Oct-23 - AutoConfiguration (Paid started)
+AutoConfiguration:
+- property management (application.properties/yml) - DB connections write instead of java (programmatical) we will write in XML as properties. so here springboot gives predefined properties. Using proper starter we have predefined properties. - dependency management (pom.xml) one class dependent on another class (hierarchical configuration) - IOC
+
+Ways to provide properties:
+application.properties - server.port
+
 ### 21-35-SBMS-07-NOV-23 - Microservice -> New UserService, greet
 
 ### 29-35-SBMS-17-NOV-23 - Hibernate -> crate table in mysql using spring, hibernate

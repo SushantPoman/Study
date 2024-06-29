@@ -62,13 +62,6 @@ https://www.baeldung.com/spring-bean-scopes
 https://jayamaljayamaha.medium.com/bean-scopes-in-java-springboot-e1e3c5874b51 - Image
 https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
 
-## Actuator:
-Provides built in production ready features to monitor and manage your application.
-Features:
-- Built in endpoints
-- Ability to view real time metrics
-
-<img src="images/actuator_endpoints.png" alt="image" width="500" height="auto">
 
 ## Redis cache:
 Remote Dictionary Server, aka Redis, an in-memory data store, is one of the many options for implementing caching in Spring Boot applications due to its speed, versatility, and simplicity of use. It is a versatile key-value store that supports several data structures, such as Strings, Sorted Sets, Hashes, Lists, Streams, Bitmaps, Sets, etc., because it is a NoSQL database and doesn’t need a predetermined schema.
@@ -90,17 +83,9 @@ Is an open-source distributed tracing system
 
 - Embarkx - https://www.youtube.com/watch?v=EeQRAxXWDF4&t=1s
 
-
-### Zookeeper used to manage topics/partition/cluster using api gateway technique.
-
-
-AutoConfiguration:
-- property management(application.properties/ym) -
-- dependency management(pom.xml) -
-
-
 ## Kafka:
-Apache kafka is like a communication system that helps different parts of computer system exchange data by publishing and subscribing to topics.
+- Apache kafka is like a communication system that helps different parts of computer system exchange data by publishing and subscribing to topics.
+- Zookeeper used to manage topics/partition/cluster using api gateway technique.
 
 <img src="images/kafka_archi.png" alt="image" width="500" height="auto">
 
@@ -131,3 +116,32 @@ create img from mvn wrapper:
 
 - Embarkx - https://www.youtube.com/watch?v=BLlEgtp2_i8
 - Ashokit - https://www.youtube.com/watch?v=8dccz7ca4FM
+
+
+## AWS
+- Application load balancer
+- Route 53
+- VPC public and private subnet
+- Auto scaling
+- cloudfront - cdn, domain name, public and private certificates,
+- WAF - web application firewall
+
+## Actuator:
+- Provides built in production ready features to monitor and manage your application.
+- Provides endpoint like /actuator, /actuator/health, /actuator/metric
+- This helps us to monitor data like threads, cache, requests, jvm memory
+- Spring boot to actuator provides all this details with the micrometer data provider.
+Features:
+- Built in endpoints
+- Ability to view real time metrics
+
+<img src="images/actuator_endpoints.png" alt="image" width="500" height="auto">
+
+## Micrometer:
+- Monitoring system vendors are Prometheus, AWS cloudwatch, Netflix Atlas, Graphana
+- All this vendors need data in different different formats to process and display the output in graphical representation - Micrometer converts this metrics data to the vendor required formats. (Taking data from actuator)
+
+## Prometheus:
+- It is a in memory dimensional time series database and it is designed to operate on a pool model (It pulls the metrics from application periodically).
+- It also supports custom query language and math operation to extract the relevant metrics data
+- Imp - https://blog.devops.dev/send-email-alerts-using-prometheus-alert-manager-16df870144a4
