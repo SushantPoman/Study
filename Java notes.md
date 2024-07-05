@@ -11,12 +11,12 @@ domain - currently working on telecom.. and having exp in ecommerce domain\
 achievement - I can work as independent as well as a team member.\
 That's it from my side, please let me know if u r looking for any other information
 
-### why java?\
+### why java?
 portability - can run on any platform and it is opensource(free)\
 security - it protects the customers from malicious script injection\
 strong oops concepts - reusablity, performance etc.\
 robust - it's reliable and efficient\
-wildely used - simple prog. lang and easy to learn\
+wildely used - simple prog. lang and easy to learn
 
 ### data types:
 Primitive -
@@ -30,7 +30,7 @@ Primitive -
 - char: A 16-bit type that stores a single character or an ASCII value.
 Non primitive - String, Array, Class, Interface and Enum
 
-### Exception and types:\
+### Exception and types:
 How to handle the error and represent to end user.\
 Checked - it should be declare and we should handle the exception and we need to throw the error to base class. if we can not handle compiler will throw the error.
 
@@ -49,7 +49,7 @@ Unchecked - this should not be declared in the method signature and it can be th
         throw new RuntimeException(id);
     }
 
-### diff between class and interface\
+### diff between class and interface
 A class contains properties, methods and constructors where as interface contains only abstract methods which has only signatures without any implementation.\
 E.g Bank account stmt download(Abstract method - downloadStmt(type, data) ) - pdf format, csv format, json format
 
@@ -99,7 +99,7 @@ Interfaces can only contains abstract methods and we can't write non abstract me
     Order of data           Important       Not Important
     E.g. (cases)            Only retrieval  Update data, add, remove
 
-### Hashtable:\
+### Hashtable:
 It's a data structure used to store key and value pair. Its an efficient data structure for storing and retrieving the data as we can access the data in constant time.
 - put(key, value) -> going to insert data in HashTable -> new bucket and add this item to the bucket
 - get(key) -> based on hashcode it retrievs the data
@@ -144,7 +144,7 @@ Creating order with two products -> UseCase
     7th ..                                                                      }
 Garbage collector don't know the scope of order, cust, service until we define finally.. it will pile up and it will throw OutOfMemoryExceptions
 
-### What is multithreading:\
+### What is multithreading:
 Is a programming concept, allows multiple tasks to be executed concurrently. In java multithreading can be implemented using Thread class. A thread object represents a single thread of execution.\
 Advantages:
 - increased performance
@@ -235,6 +235,8 @@ Product prod = Product.getProduct("iPhone14");
 These features enhance the flexibility and expressiveness of Java interfaces, making them more powerful and versatile.
 
 ### Collections:
+https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/Streams.java
+https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/StreamsCustom.java
 - ArrayList vs LinkedList - 
     - https://www.javatpoint.com/difference-between-arraylist-and-linkedlist
     - https://www.geeksforgeeks.org/arraylist-vs-linkedlist-java/
@@ -251,13 +253,14 @@ decimal-to-binary-converter-with-steps#calc43
     - https://medium.com/@the_infinity/javas-synchronized-collections-07712ae3b2cb
 
 ### Comparable vs comparator
-Comparable:
+https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/CompareFields.java 
+#### Comparable:
 1.	The Comparable interface allows you to compare an object with other objects of the same type.
 2.	It is used for the default ordering of objects.
 3.	Classes that implement the Comparable interface override the compareTo() method to enable default ordering based on a specific attribute.
 4.	The actual class is modified when implementing Comparable.
 5.	Example: Suppose we have a Student class with attributes like rollno, name, and age. By implementing Comparable<Student>, we can sort a list of students based on their age.
-Comparator:
+#### Comparator:
 1.	The Comparator interface is a functional interface that can sort objects.
 2.	It provides multiple sorting sequences.
 3.	Unlike Comparable, it does not modify the actual class.
@@ -266,6 +269,7 @@ Comparator:
 In summary:
 - Use Comparable when you want to define the default ordering for objects within the same class.
 - Use Comparator when you need custom sorting logic or want to sort objects based on different attributes.
+
 
 ### Thread lifecyce:
 Threads go through various stages or phases during their lifetime. At any given moment, a thread exists in one of the following states:
@@ -306,7 +310,8 @@ Steps:
 - Deep Copy of objects should be performed in the getter methods to return a copy rather than returning the actual object reference
 https://www.geeksforgeeks.org/create-immutable-class-java/  
 
-
+### Singleton class:
+https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/DbSingleton.java
 
 ## SOLID principles:
 1. Single Responsibility Principle I
