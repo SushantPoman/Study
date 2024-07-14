@@ -114,6 +114,14 @@ Docker is a open source platform for developing, shipping and  running applicati
 create img from mvn wrapper:
 ./mvnw spring-boot:build-image "-Dspring-boot.build.image.imageName=dcode007/companyms"
 
+Dockerfile inside springboot:
+
+    FROM openjdk:17
+    EXPOSE	8080
+    ADD target/kubernetespractice.jar kubernetespractice.jar
+    ENTRYPOINT ["java","-jar","/kubernetespractice.jar"]
+
+
 - Embarkx - https://www.youtube.com/watch?v=BLlEgtp2_i8
 - Ashokit - https://www.youtube.com/watch?v=8dccz7ca4FM
 
@@ -145,3 +153,41 @@ Features:
 - It is a in memory dimensional time series database and it is designed to operate on a pool model (It pulls the metrics from application periodically).
 - It also supports custom query language and math operation to extract the relevant metrics data
 - Imp - https://blog.devops.dev/send-email-alerts-using-prometheus-alert-manager-16df870144a4
+
+## Kubernetes:
+Kubernetes is an open-source container-orchestration engine or container management tool, it automates deploying, scaling, and managing containerized application.
+
+- Container - Docker
+- Management - Deploying, scheduling, scaling, load balancing, self healing, roll back, monitoring
+
+Components - Pods, Nodes, Cluster, Replica set, Service, Deployment, Secrets, Config Map, ETCD
+
+<img src="images/k8s_master_worker_node.png" alt="image" width="800" height="auto">
+<img src="images/k8s_master_node.png" alt="image" width="700" height="auto">
+<img src="images/k8s_master_node.png" alt="image" width="700" height="auto">
+
+Deploy application using commands:
+- minikube version
+- minikube start --driver=docker (Use docker as platform to make to minikube cluster up)
+- minikube status
+- kubectl cluster-info
+- kubectl get nodes
+- minikube docker-env   (Use docker inside minikube)
+- copy last line from above cmd output and paste as next cmd
+- docker images     (To check docker images)
+- docker build -t spring-k8s-practice:1.0 .     (After navigating to project directory)
+- docker images     (To check img is created or not)
+- kubectl create deployment spring-k8s-practice --image=spring-k8s-practice:1.0 --port=8080
+- kubectl get deployment
+- kubectl describe deployment spring-k8s-practice
+- kubectl get pods
+- kubectl logs  (use pod_name here)
+- kubectl get deployment
+- kubectl expose deployment spring-k8s-practice --type=NodePort
+- kubectl get service
+- minikube service spring-k8s-practice --url    (To get the url inside container where our application is running)
+- minikube dashboard
+- kubectl delete service spring-k8s-practice
+- kubectl delete deployment spring-k8s-practice
+- minikube stop
+
