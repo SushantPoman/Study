@@ -374,6 +374,6 @@ https://www.youtube.com/watch?v=neSp9gap7Rw
 
 
 Java 11:
-https://www.baeldung.com/java-11-new-features
-https://www.interviewbit.com/blog/java-11-features/
+- https://www.baeldung.com/java-11-new-features
+- https://www.interviewbit.com/blog/java-11-features/
 

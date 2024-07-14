@@ -49,7 +49,7 @@ In Spring, the bean lifecycle refers to the stages a bean goes through from its 
     - When the Spring container is shutting down (e.g., during application shutdown), it calls the bean’s destroy-method (if defined).
     - Use this phase to release resources or perform cleanup tasks.
 In summary, the Spring container manages the entire lifecycle of a bean, from creation to destruction. You can customize this lifecycle by implementing callback methods or using annotations.
-- https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring/
+- https://medium.com/@sendvjs/spring-bean-life-cycle-9363332c335e
 - https://digitalocean.com/community/tutorials/spring-bean-life-cycle 
 
 
