@@ -166,6 +166,10 @@ Components - Pods, Nodes, Cluster, Replica set, Service, Deployment, Secrets, Co
 <img src="images/k8s_master_node.png" alt="image" width="700" height="auto">
 <img src="images/k8s_master_node.png" alt="image" width="700" height="auto">
 
+
+Set default context:
+- docker context use default
+
 Deploy application using commands:
 - minikube version
 - minikube start --driver=docker (Use docker as platform to make to minikube cluster up)
@@ -189,5 +193,17 @@ Deploy application using commands:
 - minikube dashboard
 - kubectl delete service spring-k8s-practice
 - kubectl delete deployment spring-k8s-practice
-- minikube stop
+- docker rmi kubernetespractice:1.0 (Image:tag)
+- minikube stop \
+Application - https://github.com/SushantPoman/KubernetesPractice/commit/5ef37cf101dda23290f7a3ea46f7af2bd1faf7d0 \
 
+Deploy application using yaml:
+- minikube version
+- minikube start --driver=docker (Use docker as platform to make to minikube cluster up)
+- minikube status
+- minikube docker-env   (Use docker inside minikube)
+- copy last line from above cmd output and paste as next cmd
+- docker images     (To check docker images)
+- kubectl apply -f k8s-deployment.yaml
+- kubectl apply -f k8s-service.yaml \
+Application - https://github.com/SushantPoman/KubernetesPractice/commit/05961da31fd539bcb0f5d8c719826680197a9be7
