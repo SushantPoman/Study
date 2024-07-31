@@ -195,7 +195,7 @@ Deploy application using commands:
 - kubectl delete deployment spring-k8s-practice
 - docker rmi kubernetespractice:1.0 (Image:tag)
 - minikube stop \
-Application - https://github.com/SushantPoman/KubernetesPractice/commit/5ef37cf101dda23290f7a3ea46f7af2bd1faf7d0 \
+Application - https://github.com/SushantPoman/KubernetesPractice/commit/5ef37cf101dda23290f7a3ea46f7af2bd1faf7d0
 
 Deploy application using yaml:
 - minikube version
@@ -203,6 +203,9 @@ Deploy application using yaml:
 - minikube status
 - minikube docker-env   (Use docker inside minikube)
 - copy last line from above cmd output and paste as next cmd
+- navigate to current project directory
+- mvn clean install -DskipTests=true
+- docker build -t spring-k8s-practice:1.0 .
 - docker images     (To check docker images)
 - kubectl apply -f k8s-deployment.yaml
 - kubectl apply -f k8s-service.yaml \
