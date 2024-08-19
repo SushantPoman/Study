@@ -54,14 +54,17 @@ In summary, the Spring container manages the entire lifecycle of a bean, from cr
 
 
 ### REST API Design Guidelines:
-https://www.javaguides.net/2018/06/restful-api-design-best-practices.html#google_vignette
-https://medium.com/@avocadi/building-restful-apis-with-spring-boot-a-comprehensive-guide-2a7bf72aeea6
+- https://www.javaguides.net/2018/06/restful-api-design-best-practices.html#google_vignette
+- https://medium.com/@avocadi/building-restful-apis-with-spring-boot-a-comprehensive-guide-2a7bf72aeea6
 
 ### Scopes in spring:
-https://www.baeldung.com/spring-bean-scopes
-https://jayamaljayamaha.medium.com/bean-scopes-in-java-springboot-e1e3c5874b51 - Image
-https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
+- https://www.baeldung.com/spring-bean-scopes
+- https://jayamaljayamaha.medium.com/bean-scopes-in-java-springboot-e1e3c5874b51 - Image
+- https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
 
+### Secure Api using Api key and secret:
+- https://www.geeksforgeeks.org/securing-spring-boot-api-with-api-key-and-secret/
+- https://github.com/SushantPoman/SecureApi/commit/be78b44ae9efaa2e486f82c0f7fbe70813640f74
 
 ## Redis cache:
 Remote Dictionary Server, aka Redis, an in-memory data store, is one of the many options for implementing caching in Spring Boot applications due to its speed, versatility, and simplicity of use. It is a versatile key-value store that supports several data structures, such as Strings, Sorted Sets, Hashes, Lists, Streams, Bitmaps, Sets, etc., because it is a NoSQL database and doesn’t need a predetermined schema.

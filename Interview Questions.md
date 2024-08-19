@@ -35,9 +35,14 @@
 14. checked exceptions vs unchecked exceptions
 15. Internal working of hashmap
 16. explain thread lifecycle
+17. When to Use a Parallel Stream in Java?
+18. Why not serialize abstract classes in Java?
+19. Is there any way not to implement interface methods in Java?
+20. What is SerialVersionUID in Java?
+
 
 # Spring
-1. How can we enable security in api
+1. How can we enable security in api /  How do you secure your APIs?
 2. Where we store username and password in spring boot
 3. Consumed API AWS can not accept more than 25 request per second, but our app can accept 2K. How can we handle it. Any setting to restrict number of calls?
 4. Limit number of api calls by which load balancer will not fall down
@@ -65,6 +70,12 @@
 26. Stubbing in testing
 27. Scopes (Singleton, prototype, session, request, application)
 28. Pessimistic Locking vs Optimistic Locking in JPA
+29. How do you secure your APIs?
+30. Can we use object as a key in HashMap in Java? If Yes then How can you implement that?
+31. Let’s say you want to make parallel call for the services, how can you do that using Java ?
+32. How will you handle Multiple microservice instances with the same service?
+33. How will I write the code using Hibernate? what will be the steps in my DAO classes and it’s implementation class?
+
 
 # Database
 1. how to increase performance of queries
@@ -77,3 +88,8 @@
 4. If we have 100 user stories, who will take decision which 10 need to take..
 5. how do you create user story?
 6. what is sprint planning?
+
+
+## Links:
+1. https://medium.com/@javacharter/my-interview-experience-at-jp-morgan-java-microservices-rest-api-spring-fafbcf79240b
+2. https://medium.com/@javacharter/my-interview-experience-at-jp-morgan-java-microservices-rest-api-spring-part-ii-13fc00d04fb4
