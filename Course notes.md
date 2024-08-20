@@ -9,6 +9,16 @@ AutoConfiguration:
 Ways to provide properties:\
 application.properties - server.port
 
+Database integration steps:
+
+    // Load driver
+    class.forName("com.mysql.cj.jdbc.Driver");
+    // Getting a connection
+    Connection con DriverManager.getConnection("jdbc: mysql://localhost:3306/spring_boot_training", userName, password); 
+    // Execute query
+    Statement stmtStatement = connection.createStatement();
+    ResultSet debitRs = stmtStatement.executeQuery("select * from account1");
+
 ### 21-35-SBMS-07-NOV-23 - Microservice -> New UserService, greet
 
 ### 29-35-SBMS-17-NOV-23 - Hibernate -> crate table in mysql using spring, hibernate
@@ -99,6 +109,32 @@ Swagger
 api - all the core logic which requires to generate api\
 ui - dashboard\
 https://github.com/HarshaPrimeTrainings/SpringBoot_MicroService_SpringCloud_Security/blob/main/swagger_Userservice/userservice/src/main/java/com/training/userservice/config/SwaggerConfig.java
+
+Code:
+
+    <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        <version>2.3.0</version>
+    </dependency>
+
+    import org.springdoc.core.models.GroupedOpenApi;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation. Configuration;
+
+    @Configuration
+    public class SwaggerConfig {
+    
+        @Bean
+        public GroupedOpenApi controllerApi() {
+            return GroupedOpenApi.builder()
+                    .group("controller-validation")
+                    .packagesToScan ("com.lex.validators") 
+                    // Specify the package to scan 
+                    .build();
+    I
+            }
+    }
 
 ### 38-35-SBMS-01-DEC-23 - Spring cloud -> Eureka server(Internal MS communication), Horizontal load balancing
 Access eureka server on - http://localhost:8761/ \

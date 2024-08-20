@@ -5,11 +5,12 @@ https://www.youtube.com/watch?v=mafkhtals0o
 
 
 ### Tell me about yourself:- 
-qualification\
-skillset working on java, spring and springboot and tools like eureka, api gateway, actuator, resilience4j, redis, prometheus and kafka\
-domain - currently working on telecom.. and having exp in ecommerce domain\
-achievement - I can work as independent as well as a team member.\
-That's it from my side, please let me know if u r looking for any other information
+- qualification - I have completed my graduation in Computer Engg from Pune University
+- skillset - Currently working on Springboot and microservice having experience of different tools like Eureka, Api gatewar, Resilience4j, Actuator, Zipkin, Redis, Promotheus and Kafka
+- domain - Currently working on telecom and having exp in ecommerce domain
+- achievement - I can work as independent as well as a team member.
+- responsibility - responsible for overseeing the development process, ensuring that coding standards are met, and guiding the team towards successful completion of projects. Also, mentors team of developers to achieve a project's goals. Basically I invovled from requirement gathering/analysis to post deployment processes like monitoring, bug fixes if any.
+- That's it from my side, please let me know if u r looking for any other information
 
 ### why java?
 portability - can run on any platform and it is opensource(free)\
@@ -34,20 +35,17 @@ Non primitive - String, Array, Class, Interface and Enum
 How to handle the error and represent to end user.\
 Checked - it should be declare and we should handle the exception and we need to throw the error to base class. if we can not handle compiler will throw the error.
 
-    try{
-        File file = new File("ab.txt");
-        Scanner scanner = new Scanner(file);
-    }catch(IOException ie){
-        sysout("file not found");
-    }
+Example:
+- ClassnotFoundException: when the JVM cannot find a class that is referred to by a Java program, Class.forName("com.mysql.jdbc.Driver"); Here mysqlconnector.jar is required to run.
+- SQLException: Failed to connect to database because URL is wrong, Syntax error in SQL statement, Row/table in SQL statement does not
+- IOException: Input or output operation is failed, File or directory not found, Incorrect file permissions
+
 Unchecked - this should not be declared in the method signature and it can be thrown by any other method. compiler will not generate any error if they are not handled.
 
-    try{
-        File file = new File("ab.txt");
-        Scanner scanner = new Scanner(file);
-    }catch(IOException ie){
-        throw new RuntimeException(id);
-    }
+Example:
+- NullpointerException
+- ArrayIndexOutOfBoundException
+- ArithmeticException: Divide by 0, Convert maximum long value to int
 
 ### diff between class and interface
 A class contains properties, methods and constructors where as interface contains only abstract methods which has only signatures without any implementation.\
@@ -319,22 +317,100 @@ https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/DbSingleton.java
     - eg. generate report, send report
     -   https://medium.com/@saygiligozde/applying-solid-principles-to-spring-boot-applications-191d7e50e1b3
 
+            @RestController
+            @RequestMapping("/report")
+            public class ReportController {
+
+                private final ReportService reportService;
+                private final EmailService emailService;
+
+                public ReportController(ReportService reportService, EmailService emailService) {
+                    this.reportService = reportService;
+                    this.emailService = emailService;
+                }
+
+                @PostMapping("/send")
+                public ResponseEntity<Report> generateAndSendReport(@RequestParam String reportContent, @RequestParam String to,@RequestParam String subject) {
+                    // correct impl reportService is responsible for generation
+                    Long reportId = Long.valueOf(reportService.generateReport(reportContent));
+                    // correct impl emailService is responsible for sending
+                    emailService.sendReportByEmail(reportId, to, subject);
+                    return new ResponseEntity<>(HttpStatus.OK);
+                }
+            }
+
 2. Open-Closed Principle
     - Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification
-    - eg. spring's dependency injection Leverage Spring's DI mechanism to inject different implementations of interfaces without modifying the client class, DiscountStrategy
+    - spring's dependency injection Leverage Spring's DI mechanism to inject different implementations of interfaces without modifying the client class
+    - eg. DiscountStrategy
     - https://numericaideas.com/blog/solid-principles-in-spring-boot/
+
+    <img src="images/solid_open_closed.png" alt="image" width="800" height="auto">
 
 3. Liskov Substitution Principle
     - Derived or child classes must be substitutable for their base or parent classes"
     - e.g. https://medium.com/@javatechie/solid-design-principle-java-ae96a48db97
 
+            public abstract class SocialMedia {
+                public abstract void chatWithFriend();
+                public abstract void publishPost(Object post);
+                public abstract void sendPhotosAndVideos();
+                public abstract void groupVideoCall(String... users);
+            }
+
+    - Due to publishPost() method whatsapp child is not substitute of parents SocialMedia because whatsapp doesn’t support upload photos and videos for friend it’s just a chatting application so it doesn’t follow LSP
+    - Similarly instagram doesn’t support groupVideoCall() feature so we say instagram child is not substitute of parents SocialMedia
+    - Solution:
+
+            public interface SocialMedia {  
+                public void chatWithFriend();
+                public void sendPhotosAndVideos();
+            }
+            
+            public interface SocialPostAndMediaManager { 
+                public void publishPost(Object post);
+            }
+
+            public interface VideoCallManager{ 
+                public void groupVideoCall(String... users);
+            }
+
+    - Whatsapp will implement SocialMedia and VideoCallManager. Similarly instagram will implement SocialMedia and SocialPostAndMediaManager.
+
+
 4. Interface Segregation Principle
     - Do not force any client to implement an interface which is irrelevant to them
+    - In other words, a class should only be required to implement the methods that are relevant to its behavior.
     - e.g https://amrtechuniverse.com/solid-principles-in-spring-boot
+
+            public interface PaymentService {
+                void processPayment(Order order);
+            }
+
+            public interface RefundService {
+                void processRefund(Order order);
+            }
+
+            @Service
+            public class PayPalPaymentService implements PaymentService, RefundService {
+                @Override
+                public void processPayment(Order order) {
+                    // payment processing logic
+                }
+
+                @Override
+                public void processRefund(Order order) {
+                    // refund processing logic
+                }
+            }
+    - By creating separate interfaces for different responsibilities, we ensure that classes only implement the methods they need, making the code more maintainable and readable.
 
 5. Dependency Inversion Principle
     - Must use abstraction (abstract classes and interfaces) instead of concrete implementations. High-level modules should not depend on the low-level module but both should depend on the abstraction
     - https://numericaideas.com/blog/solid-principles-in-spring-boot/
+    
+    <img src="images/solid_dependency_inversion.png" alt="image" width="800" height="auto">
+
 
 ### Saga design pattern:
 
@@ -373,7 +449,19 @@ https://www.youtube.com/watch?v=neSp9gap7Rw
     - Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain
 
 
-Java 11:
+### Java 8:
+- https://www.youtube.com/watch?v=mafkhtals0o
+
+### Java 11:
 - https://www.baeldung.com/java-11-new-features
 - https://www.interviewbit.com/blog/java-11-features/
+- https://www.youtube.com/watch?v=4EBA7xyw4rI
 
+### Java 15:
+- https://www.baeldung.com/java-15-new
+- https://iampravo.medium.com/java-15-a1bd6742dac8
+
+### Java 17:
+- https://www.baeldung.com/java-17-new-features
+- https://javatechonline.com/java-17-features/
+- https://www.youtube.com/watch?v=6DrYYLrzmvQ

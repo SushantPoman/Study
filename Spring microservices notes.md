@@ -1,4 +1,17 @@
 
+### Microservice:
+Microservice is an architectural style of developing an application as a suite of small services, each capable of independently deployable, scalable.
+
+                            Monlithic                           Microservice
+    Developement        Single Language                     Each service can be writeen in different language 
+    Testing             Full regression testing             Test the modified service
+    Packaging           Single EAR/MSBuild file             Multiple jar/war files
+    Runtime             Runs as a single process            Each service run in its process   
+    Scalability         Replicating on multiple servers     Scale up only the service which needs to be scaled up
+    Minor changes       Full rebuild and deployment         Only the service which changed is built and deployed
+    Choose              Small app/Customer base             Large enterprise application  
+
+
 ### Why Spring Boot for Microservices?:
 Spring Boot is an excellent choice for microservices development due to its features:
 - Embedded Server Support: Spring Boot includes embedded servers (like Tomcat or Jetty), simplifying deployment.
