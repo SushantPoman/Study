@@ -1,0 +1,44 @@
+…or create a new repository on the command line
+echo "# OrderService" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/SushantPoman/OrderService.git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/SushantPoman/OrderService.git
+git branch -M main
+git push -u origin main
+
+
+If you have a git profile and a repository you can take these simple steps to get it online:
+Open a terminal and go inside the folder of the project you want to push to your git repository
+Check if you are on the right git branch: git checkout
+git add .
+git commit -m "your messagge to commit"
+git push origin -u "yourbranchName
+
+If you have never set up your origin branch, you should add it before using it:
+
+git remote add origin "github link"
+
+
+
+git branch demo_greet		// create new branch locally
+git branch -M main   		// rename current branch
+git checkout -b basic_greet 	// create and checkout new branch
+git branch
+git diff main
+git checkout main
+git merge basic_greet --no-ff --no-commit 
+
+git pull			// take a pull = fetch + merge
+
+git branch -d service_layer     // delete branch
+
+
+
+
+
