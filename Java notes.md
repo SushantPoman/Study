@@ -235,6 +235,8 @@ These features enhance the flexibility and expressiveness of Java interfaces, ma
 ### Collections:
 https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/Streams.java
 https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/StreamsCustom.java
+- Array vs ArrayList -
+    - https://www.geeksforgeeks.org/array-vs-arraylist-in-java/
 - ArrayList vs LinkedList - 
     - https://www.javatpoint.com/difference-between-arraylist-and-linkedlist
     - https://www.geeksforgeeks.org/arraylist-vs-linkedlist-java/
@@ -349,6 +351,7 @@ https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/DbSingleton.java
 
 3. Liskov Substitution Principle
     - Derived or child classes must be substitutable for their base or parent classes"
+    - e.g. https://www.jrebel.com/blog/solid-principles-in-java
     - e.g. https://medium.com/@javatechie/solid-design-principle-java-ae96a48db97
 
             public abstract class SocialMedia {
@@ -441,12 +444,28 @@ https://www.youtube.com/watch?v=neSp9gap7Rw
 ### Structural:
 
 1. Adapter
-    - Attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.
+    - Converts the interface of a class into another interface that a client wants
+    - The Adapter design pattern in Java is a structural pattern that allows the interface of an existing class to be used as another interface. It acts as a bridge between two incompatible interfaces, making them work together. This pattern involves a single class, known as the adapter, which is responsible for joining functionalities of independent or incompatible interfaces. 
+    - https://www.scaler.com/topics/design-patterns/adapter-design-pattern/
+    - https://medium.com/@thecodebean/adapter-design-pattern-implementation-in-java-72f4a19af3c1
+
+2. Facade:
+    - Provide a unified interface to a set of interfaces in a subsystem. Facade Pattern defines a higher-level interface that makes the subsystem easier to use.
+    - https://www.geeksforgeeks.org/facade-design-pattern-introduction/
+    - https://www.javatpoint.com/facade-pattern
+
     
 ### Behavioural:
 
-1. Chain of responsibility
-    - Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain
+1. Strategy:
+    - Defines a family of functionality, encapsulate each one, and make them interchangeable. allowing clients to switch algorithms dynamically without altering the code structure. 
+    - https://www.geeksforgeeks.org/strategy-design-pattern-in-java/
+    - https://www.javatpoint.com/strategy-pattern
+
+2. Observer:
+    - Define a dependency so that when one object changes state, all its dependents are notified and updated automatically 
+    - Observer Design Pattern is a behavioral design pattern where an object, known as the subject, maintains a list of its dependents, called observers, that are notified of any changes in the subject's state. This pattern is often used to implement distributed event handling systems.
+    - https://www.geeksforgeeks.org/observer-method-design-pattern-in-java/
 
 
 ### Java 8:

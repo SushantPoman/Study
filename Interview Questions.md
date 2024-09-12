@@ -39,6 +39,8 @@
 18. Why not serialize abstract classes in Java?
 19. Is there any way not to implement interface methods in Java?
 20. What is SerialVersionUID in Java?
+21. Collections - why java doesn't store primitive data type directly in collections
+
 
 
 # Spring
@@ -75,6 +77,14 @@
 31. Let’s say you want to make parallel call for the services, how can you do that using Java ?
 32. How will you handle Multiple microservice instances with the same service?
 33. How will I write the code using Hibernate? what will be the steps in my DAO classes and it’s implementation class?
+34. You can 3 instances for one service, how will you ensure that all the request are not going to one service only - Finnclient vs RestTemplate
+35. Change management endpoints - actuator endpoint should be different from system endpoint
+36. Security, load balancing and scaling
+37. Design patterns - Singleton, Factory, Abstract Facotry, Facade, Decorator, Adapter, Strategy and Front controller 
+38. Initialize beans based on conditions
+39. Instagram like functionality
+40. Storing artifacts jar
+41. How will you ensure that your application is available to all the consumers (Alert related to high traffic)
 
 
 # Database

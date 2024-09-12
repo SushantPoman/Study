@@ -75,9 +75,31 @@ In summary, the Spring container manages the entire lifecycle of a bean, from cr
 - https://jayamaljayamaha.medium.com/bean-scopes-in-java-springboot-e1e3c5874b51 - Image
 - https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
 
-### Secure Api using Api key and secret:
-- https://www.geeksforgeeks.org/securing-spring-boot-api-with-api-key-and-secret/
-- https://github.com/SushantPoman/SecureApi/commit/be78b44ae9efaa2e486f82c0f7fbe70813640f74
+## Security:
+- AWS Lambda Authorizer:
+    - https://manosmargaritis.medium.com/building-an-aws-lambda-function-authorizer-with-java-and-spring-boot-ed7acd7b6a25
+    - https://github.com/SushantPoman/AWSLambda/commit/af4c98d986a34b2ba48dc6ef0ea20f803957a9a2
+
+    Console output:
+    - Success ->\
+    Response: 130021560795
+    Policy: PolicyDocument [versionString=2012-10-17, statements=[Statement [action=execute-api:Invoke, effect=Allow,resoure=arn:aws:execute-api:eu-west-2:null:null:*:*:*]]]
+    - Failure ->\
+    Response: null 
+    Policy: PolicyDocument [versionString=2012-10-17, statements=[Statement [action=execute-api:Invoke, effect=Deny, resoure=arn:aws:execute-api:eu-west-2:null:null:*:*:*]]]
+
+- JWT with DB:
+    - https://www.unlogged.io/post/integrating-jwt-with-spring-security-6-in-spring-boot-3
+
+- OAuth 2.0 with JWT and DB:
+    - https://medium.com/@burakkocakeu/spring-security-oauth-and-jwt-fa7a893a6123
+    - https://www.geeksforgeeks.org/spring-boot-oauth2-with-jwt/
+    - https://www.toptal.com/spring/spring-boot-oauth2-jwt-rest-protection 
+
+- Secure Api using Api key and secret:
+    - https://www.geeksforgeeks.org/securing-spring-boot-api-with-api-key-and-secret/
+    - https://github.com/SushantPoman/SecureApi/commit/be78b44ae9efaa2e486f82c0f7fbe70813640f74
+
 
 ## Redis cache:
 Remote Dictionary Server, aka Redis, an in-memory data store, is one of the many options for implementing caching in Spring Boot applications due to its speed, versatility, and simplicity of use. It is a versatile key-value store that supports several data structures, such as Strings, Sorted Sets, Hashes, Lists, Streams, Bitmaps, Sets, etc., because it is a NoSQL database and doesn’t need a predetermined schema.
@@ -158,6 +180,8 @@ Dockerfile inside springboot:
 Features:
 - Built in endpoints
 - Ability to view real time metrics
+- /metrics/health - status of the application
+- /metrics/beans - all beans used in our application
 
 <img src="images/actuator_endpoints.png" alt="image" width="500" height="auto">
 
@@ -226,3 +250,4 @@ Deploy application using yaml:
 - kubectl apply -f k8s-deployment.yaml
 - kubectl apply -f k8s-service.yaml \
 Application - https://github.com/SushantPoman/KubernetesPractice/commit/05961da31fd539bcb0f5d8c719826680197a9be7
+
