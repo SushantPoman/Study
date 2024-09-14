@@ -414,9 +414,6 @@ https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/DbSingleton.java
     
     <img src="images/solid_dependency_inversion.png" alt="image" width="800" height="auto">
 
-
-### Saga design pattern:
-
 ## Design patterns:
 https://www.youtube.com/watch?v=neSp9gap7Rw
 
@@ -426,45 +423,51 @@ https://www.youtube.com/watch?v=neSp9gap7Rw
     - It's especially useful when you need to create an object with lots of possible configuration options. 
     - e.g. Spring(Kafka - topicBuilder while generating NewTopic, Servlet -SpringApplicationBuilder), Android (NotificaitonBuilder, AlertDialogBuilder)
     - SpringApplicationBuilder - Add more sources (configuration classes and components) to this application
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/DesignPatterns/creational/DpBuilder.java
 
 2. Factory
     - Define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. 
     - Factory Method Pattern allows the sub-classes to choose the type of objects to create. It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code.. 
-    - e.g. slf4j.LoggerFactory, SessionFactory, BeanFactory, ReportFactory(Custom)
+    - e.g. slf4j.LoggerFactory, SessionFactory, BeanFactory, PaymentMethodFactory(Custom)
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/DesignPatterns/creational/DpFactory.java
+    - Springboot - https://medium.com/@halilugur/factory-method-pattern-with-spring-boot-90c0f3ce93af
 
 3. Singleton
     - Ensures that only one object of its kind exists and provides a single point of access to it for any other code
     - e.g. Logging service, utility classes, configuration (properties, environment variables, feature toggles), caching (Implement a singleton cache manager to store frequently accessed data in memory).
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/DesignPatterns/creational/DpSingleton.java
 
 4. Prototype
     - Cloning of an existing object instead of creating new one and can also be customized as per the requirement
     - When you need a new instance of a bean every time it's requested, such as maintaining per-client or per-request state, use the prototype scope
     - e.g. user session, shopping cart, generate unique tokens, random numbers
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/DesignPatterns/creational/DpPrototype.java
 
 ### Structural:
 
 1. Adapter
     - Converts the interface of a class into another interface that a client wants
     - The Adapter design pattern in Java is a structural pattern that allows the interface of an existing class to be used as another interface. It acts as a bridge between two incompatible interfaces, making them work together. This pattern involves a single class, known as the adapter, which is responsible for joining functionalities of independent or incompatible interfaces. 
-    - https://www.scaler.com/topics/design-patterns/adapter-design-pattern/
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/DesignPatterns/structural/DpAdapter.java
     - https://medium.com/@thecodebean/adapter-design-pattern-implementation-in-java-72f4a19af3c1
 
 2. Facade:
     - Provide a unified interface to a set of interfaces in a subsystem. Facade Pattern defines a higher-level interface that makes the subsystem easier to use.
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/DesignPatterns/structural/DpFacade.java
     - https://www.geeksforgeeks.org/facade-design-pattern-introduction/
-    - https://www.javatpoint.com/facade-pattern
 
     
 ### Behavioural:
 
 1. Strategy:
     - Defines a family of functionality, encapsulate each one, and make them interchangeable. allowing clients to switch algorithms dynamically without altering the code structure. 
-    - https://www.geeksforgeeks.org/strategy-design-pattern-in-java/
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/DesignPatterns/behavioural/DpStrategy.java
     - https://www.javatpoint.com/strategy-pattern
 
 2. Observer:
     - Define a dependency so that when one object changes state, all its dependents are notified and updated automatically 
     - Observer Design Pattern is a behavioral design pattern where an object, known as the subject, maintains a list of its dependents, called observers, that are notified of any changes in the subject's state. This pattern is often used to implement distributed event handling systems.
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/DesignPatterns/behavioural/DpObserver.java
     - https://www.geeksforgeeks.org/observer-method-design-pattern-in-java/
 
 

@@ -40,7 +40,7 @@
 19. Is there any way not to implement interface methods in Java?
 20. What is SerialVersionUID in Java?
 21. Collections - why java doesn't store primitive data type directly in collections
-
+22. Saga design pattern
 
 
 # Spring
