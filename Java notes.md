@@ -157,6 +157,18 @@ Avg 10 million people have home loan in pune -> RBI increased ROI 9.5 to 9.8 -> 
                                                 next 1000 -> thread2
         }
 
+- Implement Thread using Runnable interface
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/MultiThreading/RunnablePractice.java
+- Implement Thread using Thread class
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/MultiThreading/ThreadPractice.java
+- Producer consumer model(using wait and notifiy)
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/MultiThreading/ProducerConsumer.java
+    - https://www.youtube.com/watch?v=4uQAokzfm-Q
+- Sequential thread execution(using join)
+    - https://github.com/SushantPoman/JavaBasics/blob/main/src/MultiThreading/SequentialExecution.java
+    - https://www.geeksforgeeks.org/joining-threads-in-java/
+
+
 ### Collections(uses):
 - Main benefits of colleciton framework:
     - Reusabliity - Common classes and common util methods
