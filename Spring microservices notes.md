@@ -11,6 +11,18 @@ Microservice is an architectural style of developing an application as a suite o
     Minor changes       Full rebuild and deployment         Only the service which changed is built and deployed
     Choose              Small app/Customer base             Large enterprise application  
 
+### Microservices advantages:
+- Loosely coupled
+- Burden reduced on servers
+- Easy maintenance
+- No single point of failure
+- Technology independent
+- Quick deliverables
+
+### Microservices challenges:
+- Bounded context: It means identifying how many microservice we need to develop for one application and deciding which functionality we need to add in which microservice.
+- Repeated configuration: In several microservice we need to write same configurations like data source, kafka, redis, eureka, resilience4j, security
+- Visibility: As a developer you will get a chance to work on specific microservice and you will not get complete view of application
 
 ### Why Spring Boot for Microservices?:
 Spring Boot is an excellent choice for microservices development due to its features:
@@ -38,6 +50,9 @@ Developers may face challenges when migrating legacy code to Spring Boot23.
 While Spring Boot is excellent for microservices and smaller applications, it might not be the best fit for large-scale projects.
 For extensive enterprise-level systems, other Spring frameworks or custom configurations may be more appropriate23.
 Remember that Spring Boot’s benefits often outweigh its disadvantages, especially for smaller projects or when rapid development is crucial. However, understanding these limitations helps make informed decisions when choosing the right framework for your specific use case
+
+### Microservices architecture:
+<img src="images/microservice_architecture.png" alt="image" width="auto" height="auto">
 
 
 ### Bean lifecycle:
@@ -75,6 +90,167 @@ In summary, the Spring container manages the entire lifecycle of a bean, from cr
 - https://jayamaljayamaha.medium.com/bean-scopes-in-java-springboot-e1e3c5874b51 - Image
 - https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
 
+## Redis cache:
+Remote Dictionary Server, aka Redis, an in-memory data store, is one of the many options for implementing caching in Spring Boot applications due to its speed, versatility, and simplicity of use. It is a versatile key-value store that supports several data structures, such as Strings, Sorted Sets, Hashes, Lists, Streams, Bitmaps, Sets, etc., because it is a NoSQL database and doesn’t need a predetermined schema.
+Use the following steps to configure any given cache provider:
+1. Add the @EnableCaching annotation to the configuration file.
+2. Add the required cache library to the classpath.
+3. Add the cache provider configuration file to the root classpath.
+
+https://github.com/SushantPoman/UserService/commit/a4b0131deda0ed55facc969b0d0a128c215f59a4
+https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f719309f
+
+## Service Registry:
+- It is used to maintain all apis information like name, status, url and health at one place. Also called as service discovery.
+- We can use "Eureka server" as service registry. Provided by "Spring cloud" library.
+- Eureka server is used to provide a dashboard with the information of all microservices available in application
+- Note-1: If "Service-Registry" project port is 8761 then clients can discover service-registry and will register automatically with service-registry.
+- Note-2: If service-registry project running on any other port number then we have to register clients with service-registry manually. To register manually in microservice properties we will use service-url.defaultZone property.
+- Steps to develop Service Registry Application (Eureka Server)
+    1) Create SpringBoot application with below dependency
+        - Eureka Server (spring-cloud-starter-netflix-eureka-server) - devtools
+    2) Configure @Enable EurekaServer annotation in boot start class
+    3) Configure below properties in application.yml file
+
+            spring: 
+                application:
+                    name: EurekaServer
+            server:
+                port: 8761
+            eureka:
+                client:
+                    register-with-eureka: false
+    4) Once application started access it using URL - http://localhost:8761/
+
+## Api gateway:
+- It acts as entry point for all the backend apis
+- It acts as mediator between frontend app and backend apis
+- In Api gateway we will write filters and routings
+    - Filter: we can perform pre-process and post-process(Request validation)
+    - Routings: To forward request to perticular backend-api
+
+## Admin server:
+- It is used to monitor and manage all the apis at one place.
+- It provides user interface to access all apis actuator endpoints at one place.
+- Eg.
+    - Health checks
+    - Config properties
+    - URL mappings
+    - Beans loaded
+    - Change log levels
+    - Thread dumps
+    - Heap dumps
+- Steps to develop Spring Admin Server
+    1) Create Boot application with "admin-server" dependency (select it while creating the project)
+    2) Configure @EnableAdminServer annotation at start class
+    3) Change Port Number (Optional)
+
+            spring:
+                application:
+                    name: AdminServer
+            server:
+                port: 1111
+    4) Run the boot application
+    5) Access application URL in browser (We can see Admin Server UI) - http://localhost:1111/
+
+
+## Feign:
+- It is used for interservice communication(Spring cloud library)
+- Declarative web service client designed to make writing HTTP clients easier
+- If one api communicate with another api with in the same application then it is called as inter service application
+- Code snippet
+
+            
+            @FeignClient(name="Nelcome-Service")
+            public interface Welcome FeignClient {
+                @GetMapping("/welcome")
+                public String getWelcomeMsg();
+            }
+            
+            @RestController
+            public class GreetRestController {
+                @Autowired
+                private Welcome FeignClient welcomeClient;
+                
+                @GetMapping("/greet")
+                public String getGreetMsg() {
+                    String welcomeMsg = welcomeClient.getWelcomeMsg();
+                    String greetMsg = "Good Morning, ";
+                    return greetMsg + welcomeMsg;
+                }
+            }
+
+- Embarkx - https://www.youtube.com/watch?v=EeQRAxXWDF4&t=1s
+
+## Zipkin:
+- It is used for distributed tracing of our requests
+- It provides user interface to access apis execution details
+- Eg.
+    - How much time taking to process one request
+    - Which microservice taking more time to process
+    - How many services involved in one request processing
+- Steps to work with Zipkin Server
+    1) Download Zipin Jar file
+    URL: https://zipkin.io/pages/quickstart.html
+    2) Run zipkin jar file:- 
+        $ java -jar <jar-name>
+    3) Zipkin Server Runs on Port Number 9411
+    4) Access zipkin server dashboard using URL: http://localhost:9411/
+
+## Sample Microservice development:
+- Steps to develop WELCOME-API(acting as a client for eureka, admin, zipkin):
+    1) Create Spring Boot application with below dependencies
+        - eureka-discovery-client
+        - admin-client
+        - zipkin
+        - starter-web
+        - devtools
+        - actuator
+        - openfeign(interservice communication)
+    2) Configure @EnableDiscoveryClient annotation at boot start class.
+    3) Create RestController with required method
+       
+            @RestController
+            public class Welcome {
+                @GetMapping("/welcome")
+                public String getWelcomeMsg() {
+                    String msg = "Welcome To Ashok IT..!!"; return msg;
+                }
+            }
+    4) Configure below properties in application.yml file
+
+            spring:
+                application:
+                    name: 04_Welcome_Service
+                boot:
+                    admin:
+                        client:
+                            url: http://localhost:1111/
+            server:
+                port: 8081 
+            eureka:
+                client:
+                    service-url:
+                        defaultZone: http://localhost:8761/eureka/
+            management:
+                endpoints:
+                    web:
+                        exposure:
+                            include: '*'
+    
+    5) Run the application and check in Eureka Dashboard (It should display in eureka dashboard)
+    6) Check Admin Server Dashboard (It should display) (we can access application details from here)
+        Ex: Beans, loggers, heap dump, thred dump, metrics, mappings etc...
+    7) Send Request to REST API method
+    8) Check Zipkin Server UI and click on Run Query button
+        (it will display trace-id with details)
+
+## Config server:
+- It is used to separate application code and application properties
+- It is used to externalize config props of our application
+- It makes our application loosely coupled with properties file or yml file
+
+
 ## Security:
 - AWS Lambda Authorizer:
     - https://manosmargaritis.medium.com/building-an-aws-lambda-function-authorizer-with-java-and-spring-boot-ed7acd7b6a25
@@ -90,6 +266,7 @@ In summary, the Spring container manages the entire lifecycle of a bean, from cr
 
 - JWT with DB:
     - https://www.unlogged.io/post/integrating-jwt-with-spring-security-6-in-spring-boot-3
+    - https://github.com/SushantPoman/JWTwithDbss
 
 - OAuth 2.0 with JWT and DB:
     - https://medium.com/@burakkocakeu/spring-security-oauth-and-jwt-fa7a893a6123
@@ -99,27 +276,6 @@ In summary, the Spring container manages the entire lifecycle of a bean, from cr
 - Secure Api using Api key and secret:
     - https://www.geeksforgeeks.org/securing-spring-boot-api-with-api-key-and-secret/
     - https://github.com/SushantPoman/SecureApi/commit/be78b44ae9efaa2e486f82c0f7fbe70813640f74
-
-
-## Redis cache:
-Remote Dictionary Server, aka Redis, an in-memory data store, is one of the many options for implementing caching in Spring Boot applications due to its speed, versatility, and simplicity of use. It is a versatile key-value store that supports several data structures, such as Strings, Sorted Sets, Hashes, Lists, Streams, Bitmaps, Sets, etc., because it is a NoSQL database and doesn’t need a predetermined schema.
-Use the following steps to configure any given cache provider:
-1. Add the @EnableCaching annotation to the configuration file.
-2. Add the required cache library to the classpath.
-3. Add the cache provider configuration file to the root classpath.
-
-https://github.com/SushantPoman/UserService/commit/a4b0131deda0ed55facc969b0d0a128c215f59a4
-https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f719309f
-
-## Feign:
-Declarative web service client designed to make writing HTTP clients easier
-
-- Embarkx - https://www.youtube.com/watch?v=EeQRAxXWDF4&t=1s
-
-## Zipkin:
-Is an open-source distributed tracing system
-
-- Embarkx - https://www.youtube.com/watch?v=EeQRAxXWDF4&t=1s
 
 ## Kafka:
 - Apache kafka is like a communication system that helps different parts of computer system exchange data by publishing and subscribing to topics.

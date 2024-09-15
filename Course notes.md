@@ -89,10 +89,14 @@ Spring data - By default every repository is annotated with @Transactional inter
 If we have two microservices then keep both (userRepo.save(), userRepo.update() and orderRepo.save(), orderRepo.update()) in one method and define that method as @Transactional
 
 ### 36-35-SBMS-29-NOV-23 - Spring cloud -> Microservice communication(RestTemplate)
-Communicate one ms with another ms, spring offers RestTemplate. supported by Spring boot.\
-Similary we were using HttpClient till Spring 4 after that it is deprecated.\
-RestTemplate is not developed by us we need to use it in further development using autowired. so we need to create configuration class.\
-if we want to use predefined classes(not created by us) then we need to annotate them using @Bean. @Bean annotated methods added in Configuration class will be taken care by IOC.
+- Communicate one ms with another ms, spring offers RestTemplate. supported by Spring boot.
+- Similary we were using HttpClient till Spring 4 after that it is deprecated.
+- RestTemplate is not developed by us we need to use it in further development using autowired. so we need to create configuration class.
+- if we want to use predefined classes(not created by us) then we need to annotate them using @Bean. @Bean annotated methods added in Configuration class will be taken care by IOC.
+- Ways to communicate 
+    - RestTemplate: restTemplate.getForEntity(url, ...) If our service is running in multiple instances for load balancing then it is not helpful because multiple instance have multiple url and in code we can specify only one url.
+    - WebClient:  client.get(...)
+    - FeignClient: In this hardcoding of urls not required, it access based on names so preferrable than resttemplated and webclient. 
 
 ### 37-35-SBMS-30-NOV-23 - Spring cloud -> Swagger documentation
 Spring cloud - Collection of libraries which will solve commonly occured microservice - communication, tracing, fault tolerance(circuit breaker - no downtime), metrics of - application - actuator.
@@ -137,6 +141,7 @@ Code:
     }
 
 ### 38-35-SBMS-01-DEC-23 - Spring cloud -> Eureka server(Internal MS communication), Horizontal load balancing
+Service registry - It is used to maintain all apis information like name, status, url and health at one place. Also called as service discovery.\
 Access eureka server on - http://localhost:8761/ \
 orderservice.addr=http://ORDERSERVICE -> this is logical name\
 Based on logical name eureka server will resolve then it will give you actual url and port no.Horizontal load balancing - Same MS you can run with 2 instances 1:13:50 by changing the port 2 instances will work like roundrobin\
@@ -151,7 +156,7 @@ EurekaServer -> Once it got hit then it will resolve logical name and redirect t
 - OrderService - https://github.com/SushantPoman/OrderService/commit/409463ede68b10195660eb64d41f9e801d73d14d
 
 ### 39-35-SBMS-04-DEC-23 - Spring cloud -> Api gateway(External MS communication)
-Api gateway - It will register all the MS with them and it will give some routes and based on routes it will delegate the request to respective MS\
+Api gateway will register all the MS with them and it will give some routes and based on routes it will delegate the request to respective MS\
 E.g. Nginx - manually you need to add all the server ip, port no and it becomes hardcoded.\
 Spring cloud earlier used zuul proxy developed by netflix(Stoppped further release due to licensing issue), later spring cloud people developed Cloud gateway(Both configuration is same). spring cloud gateway is one of the Api gateway.\
 New project - Gateway, Spring web\
@@ -171,8 +176,7 @@ Http traffic-\
 management.endpoints.jmx.exposure.include=*\
 URL - http://localhost:8090/actuator/metrics/http.server.requests\
 Changed project -> Orderservice
-
-Spring boot admin(independent library, community project) - Monitor your application graphically by dashboard.
+Spring boot admin(independent library, community project) - Monitor your application graphically by dashboard.\
 Add @EnableAdminServer in main file\
 URL - http://localhost:7090\
 In other MS add dependency in pom.xml and set below property in application.properties\

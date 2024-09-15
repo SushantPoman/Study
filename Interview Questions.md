@@ -85,6 +85,8 @@
 39. Instagram like functionality
 40. Storing artifacts jar
 41. How will you ensure that your application is available to all the consumers (Alert related to high traffic)
+42. Interchange the annotations(@Service, @Repository or @Controller) what will happen, will it give compile or runtime error or it will work fine?
+43. Change log level of application using actuator endpoint through postman 
 
 
 # Database
