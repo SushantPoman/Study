@@ -91,7 +91,8 @@ In summary, the Spring container manages the entire lifecycle of a bean, from cr
 - https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
 
 ## Redis cache:
-Remote Dictionary Server, aka Redis, an in-memory data store, is one of the many options for implementing caching in Spring Boot applications due to its speed, versatility, and simplicity of use. It is a versatile key-value store that supports several data structures, such as Strings, Sorted Sets, Hashes, Lists, Streams, Bitmaps, Sets, etc., because it is a NoSQL database and doesn’t need a predetermined schema.
+- Remote Dictionary Server, aka Redis, an in-memory data store, is one of the many options for implementing caching in Spring Boot applications due to its speed, versatility, and simplicity of use. 
+- It is a versatile key-value store that supports several data structures, such as Strings, Sorted Sets, Hashes, Lists, Streams, Bitmaps, Sets, etc., because it is a NoSQL database and doesn’t need a predetermined schema.
 Use the following steps to configure any given cache provider:
 1. Add the @EnableCaching annotation to the configuration file.
 2. Add the required cache library to the classpath.
@@ -128,6 +129,30 @@ https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f71930
 - In Api gateway we will write filters and routings
     - Filter: we can perform pre-process and post-process(Request validation)
     - Routings: To forward request to perticular backend-api
+- Working with Spring Cloud API Gateway
+    1) Create Spring boot application with below dependencies
+        - eureka-client
+        - cloud-gateway
+        - devtools
+    2) Configure @EnableDiscoveryClient annotation at boot start class
+    3) Configure API Gateway Routings in application.yml file like below
+        
+            spring:
+                application:
+                    name: API-Gateway
+                cloud:
+                    gateway: 
+                        routes:
+                            - id: api-1
+                            uri: lb://WELCOME-SERVICE 
+                            predicates:
+                                - Path=/welcome
+                            - id: api-2
+                            uri: 1b://GREET-SERVICE 
+                            predicates:
+                                - Path=/greet
+            server:
+                port: 3333
 
 ## Admin server:
 - It is used to monitor and manage all the apis at one place.
@@ -244,6 +269,37 @@ https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f71930
     7) Send Request to REST API method
     8) Check Zipkin Server UI and click on Run Query button
         (it will display trace-id with details)
+
+## Load balancing:
+- If we run our application on single server then we will face following challenges:
+    - Single server should handle all the load
+    - Burden on server
+    - Response delay
+    - Server can crash
+    - Single point of failure
+- To overcome above problems we will run our application in multiple servers so that we can distribute the requests to multiple server
+- Load balancer is used to distribute requests to multiple servers
+- Steps to implement load balancing in microservice:
+    - Remove port number from properties/yml file
+    - Make changes to display port number in response
+         
+            @RestController
+            public class Welcome RestController {
+                @Autowired
+                private Environment env;
+                
+                @GetMapping("/welcome")
+                public String getWelcomeMsg() {
+                    String port = env.getProperty("server.port"); 
+                    String msg = "Welcome To Ashok IT..!! (" + port + ")";
+                    return msg;
+                }
+            }
+    - (Using STS IDE)Right click => Run as => run configuration => select microservice => VM
+Arguments => -Dserver.port=8081 and apply and run it
+    - Follow above step and set port 8082, 8083. With this our api will run in 3 servers with 3 different port numbers
+    - Check eureka dashboard and observe 3 instances available for our service
+    - Start another service and send request to this service and check the port on UI.
 
 ## Config server:
 - It is used to separate application code and application properties
