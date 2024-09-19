@@ -142,7 +142,7 @@ Creating order with two products -> UseCase
     7th ..                                                                      }
 Garbage collector don't know the scope of order, cust, service until we define finally.. it will pile up and it will throw OutOfMemoryExceptions
 
-### What is multithreading:
+## Multithreading:
 Is a programming concept, allows multiple tasks to be executed concurrently. In java multithreading can be implemented using Thread class. A thread object represents a single thread of execution.\
 Advantages:
 - increased performance
@@ -167,6 +167,34 @@ Avg 10 million people have home loan in pune -> RBI increased ROI 9.5 to 9.8 -> 
 - Sequential thread execution(using join)
     - https://github.com/SushantPoman/JavaBasics/blob/main/src/MultiThreading/SequentialExecution.java
     - https://www.geeksforgeeks.org/joining-threads-in-java/
+
+### Thread lifecyce:
+Threads go through various stages or phases during their lifetime. At any given moment, a thread exists in one of the following states:
+1.	New State:
+    - Occurs when a thread is created but not yet started.
+    - The thread’s code has not yet begun execution.
+    - It lies in the new state until the start() method is invoked.
+2.	Runnable State:
+    - A thread that is ready to run is moved to the runnable state.
+    - In this state, a thread might actually be running or waiting for resource allocation.
+    - The thread scheduler allocates time for each runnable thread to execute.
+3.	Blocked State:
+    - A thread enters the blocked state when it tries to acquire a lock that is currently held by another thread.
+    - It remains blocked until it acquires the lock.
+    - Once the lock is available, the thread moves back to the runnable state.
+4.	Waiting State:
+    - A thread enters the waiting state when it calls methods like wait() or join().
+    - It waits for another thread to notify it or for the waiting thread to be terminated.
+    - When notified, it transitions back to the runnable state.
+5.	Timed Waiting State:
+    - A thread enters this state when it calls a method with a time-out parameter (e.g., sleep or a conditional wait).
+    - It remains in this state until the timeout expires or until it receives a notification.
+6.	Terminated State:
+    - A thread terminates due to either of the following reasons:
+    - It exits normally after its code has been executed.
+    - An unusual event occurs, such as an unhandled exception or a segmentation fault.
+In Java, you can use the Thread.getState() method to get the current state of a thread. The java.lang.Thread.State enum defines constants for each thread state.\
+yeild(), sleep()
 
 
 ### Collections(uses):
@@ -282,35 +310,6 @@ In summary:
 - Use Comparable when you want to define the default ordering for objects within the same class.
 - Use Comparator when you need custom sorting logic or want to sort objects based on different attributes.
 
-
-### Thread lifecyce:
-Threads go through various stages or phases during their lifetime. At any given moment, a thread exists in one of the following states:
-1.	New State:
-    - Occurs when a thread is created but not yet started.
-    - The thread’s code has not yet begun execution.
-    - It lies in the new state until the start() method is invoked.
-2.	Runnable State:
-    - A thread that is ready to run is moved to the runnable state.
-    - In this state, a thread might actually be running or waiting for resource allocation.
-    - The thread scheduler allocates time for each runnable thread to execute.
-3.	Blocked State:
-    - A thread enters the blocked state when it tries to acquire a lock that is currently held by another thread.
-    - It remains blocked until it acquires the lock.
-    - Once the lock is available, the thread moves back to the runnable state.
-4.	Waiting State:
-    - A thread enters the waiting state when it calls methods like wait() or join().
-    - It waits for another thread to notify it or for the waiting thread to be terminated.
-    - When notified, it transitions back to the runnable state.
-5.	Timed Waiting State:
-    - A thread enters this state when it calls a method with a time-out parameter (e.g., sleep or a conditional wait).
-    - It remains in this state until the timeout expires or until it receives a notification.
-6.	Terminated State:
-    - A thread terminates due to either of the following reasons:
-    - It exits normally after its code has been executed.
-    - An unusual event occurs, such as an unhandled exception or a segmentation fault.
-In Java, you can use the Thread.getState() method to get the current state of a thread. The java.lang.Thread.State enum defines constants for each thread state.\
-yeild(), sleep()
-
 ### How to make java class as immutable:
 Immutable class is a class which is once created, it’s contents can not be changed. Sometimes we need to create Immutable classes for some purposes such as not allowing outside world to modify the objects. We have several inbuilt classes in Java also. Some of them are:
 String, Wrapper Classes, Arrays, LocalDate, LocalTime and etc...
@@ -321,9 +320,6 @@ Steps:
 - A parameterized constructor should initialize all the fields performing a deep copy so that data members can’t be modified with an object reference.
 - Deep Copy of objects should be performed in the getter methods to return a copy rather than returning the actual object reference
 https://www.geeksforgeeks.org/create-immutable-class-java/  
-
-### Singleton class:
-https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/DbSingleton.java
 
 ## SOLID principles:
 1. Single Responsibility Principle I

@@ -303,8 +303,69 @@ Arguments => -Dserver.port=8081 and apply and run it
 
 ## Config server:
 - It is used to separate application code and application properties
-- It is used to externalize config props of our application
 - It makes our application loosely coupled with properties file or yml file
+- We are configuring our application config properties in application.properties on application.yml E.g Database props, Kafka props, App messages etc.
+- application.properties/application.yml file will be packaged along with our application and we have to re-deploy our application.
+- Note: If any changes required in config properties then we have to repeat the complete project build & deployment which is time consuming process.
+- To avoid this problem, we have to separate our project source code and project config properties file.
+- To externalize config properties from the application we use spring cloud config server. 
+- Note: Application config properties file we will maintain in github repo and config server will load them and will give to our application based on our microservice name
+- Steps for developing Config Server App
+    1) Create Git Repository and keep ymls files required for microservices
+        - Note: We should keep file name as application name
+        - app name: greet then file name: greet.yml
+        - app name welcome then file name: welcome.yml
+        - Git Repo : https://github.com/ashokitschool/configuration_properties
+    2) Create Spring Starter application with below dependency 
+
+            <dependency>
+            <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-config-server</artifactId>
+            </dependency>
+    
+    3) Write @EnableConfigServer annotation at boot start class
+    4) Configure below properties in application.yml file
+    
+            spring:
+                application:
+                    name: 07_Cloud_Config_Server
+                cloud:
+                    config:
+                        server:
+                            git:
+                            uri: https://github.com/ashokitschool/configuration_properties
+            server:
+                port: 9093
+    5) Run config server application
+- Steps for developing Config client app
+    1) Create Spring Boot application with below dependencies
+        - web-starter
+        - config-client
+    2) Create Rest Controller with Required methods
+      
+            @RestController
+            public class MsgRestController {
+                @Value("${msg}") 
+                private String msg;
+            
+                @GetMapping("/")
+                public String getMsg() {
+                    return msg;
+                }
+            }
+    3) Configure ConfigServer url in application.yml file like below
+     
+            spring:
+                application: 
+                    name: greet
+                config:
+                    import: optional:configserver:http://localhost:9093
+    4) Run the application and test it.
+- Reload config properties dynamically
+    - We need to make below 3 changes to reload latest config props
+    - configure @RefreshScope annotation at Rest controller class
+    - Enable actuator endpoint 'refresh'
+    - Send post request to actuator endpoint 'refresh' from postman
+    - After refresh, test your application
 
 
 ## Security:
