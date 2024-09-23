@@ -54,6 +54,8 @@ Remember that Spring Boot’s benefits often outweigh its disadvantages, especia
 ### Microservices architecture:
 <img src="images/microservice_architecture.png" alt="image" width="auto" height="auto">
 
+- https://github.com/SushantPoman/Boot-Microservices
+
 
 ### Bean lifecycle:
 In Spring, the bean lifecycle refers to the stages a bean goes through from its instantiation to its destruction. Let’s explore this process:
@@ -133,26 +135,36 @@ https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f71930
     1) Create Spring boot application with below dependencies
         - eureka-client
         - cloud-gateway
-        - devtools
     2) Configure @EnableDiscoveryClient annotation at boot start class
     3) Configure API Gateway Routings in application.yml file like below
         
             spring:
                 application:
-                    name: API-Gateway
+                    name: MiniPApiGateway
                 cloud:
                     gateway: 
                         routes:
-                            - id: api-1
-                            uri: lb://WELCOME-SERVICE 
-                            predicates:
-                                - Path=/welcome
-                            - id: api-2
-                            uri: 1b://GREET-SERVICE 
-                            predicates:
-                                - Path=/greet
+                            - id: Microservice-1
+                                uri: lb://WELCOMESERVICE 
+                                predicates:
+                                    - Path=/welcome
+                            - id: Microservice-2
+                                uri: lb://GREETSERVICE 
+                                predicates:
+                                    - Path=/greet
             server:
                 port: 3333
+
+            eureka:
+                client:
+                    service-url:
+                        defaultZone: http://localhost:8761/eureka
+    4) Create Filter to validate incoming request
+        - if request contains below header then it is valid request so process.it.
+        Secret-ashokit@123
+        - if above header is not present then it is invalid request, don't process it.
+
+
 
 ## Admin server:
 - It is used to monitor and manage all the apis at one place.
@@ -185,7 +197,6 @@ https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f71930
 - If one api communicate with another api with in the same application then it is called as inter service application
 - Code snippet
 
-            
             @FeignClient(name="Nelcome-Service")
             public interface Welcome FeignClient {
                 @GetMapping("/welcome")
@@ -202,6 +213,15 @@ https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f71930
                     String welcomeMsg = welcomeClient.getWelcomeMsg();
                     String greetMsg = "Good Morning, ";
                     return greetMsg + welcomeMsg;
+                }
+            }
+
+            @SpringBootApplication
+            @EnableDiscoveryClient
+            @EnableFeignClients
+            public class GreetServiceApplication {
+                public static void main(String[] args) {
+                    SpringApplication.run(MiniPGreetServiceApplication.class, args);
                 }
             }
 
@@ -315,7 +335,7 @@ Arguments => -Dserver.port=8081 and apply and run it
         - Note: We should keep file name as application name
         - app name: greet then file name: greet.yml
         - app name welcome then file name: welcome.yml
-        - Git Repo : https://github.com/ashokitschool/configuration_properties
+        - Git Repo : https://github.com/SushantPoman/ConfigProperties
     2) Create Spring Starter application with below dependency 
 
             <dependency>
@@ -332,7 +352,7 @@ Arguments => -Dserver.port=8081 and apply and run it
                     config:
                         server:
                             git:
-                            uri: https://github.com/ashokitschool/configuration_properties
+                            uri: https://github.com/SushantPoman/ConfigProperties
             server:
                 port: 9093
     5) Run config server application

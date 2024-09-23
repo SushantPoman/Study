@@ -227,6 +227,26 @@ yeild(), sleep()
     - It returns common element by comparing two datastructure
 - Collection.Singleton
     - It created an immutable set over a specified collection
+- Array vs ArrayList -
+    - https://www.geeksforgeeks.org/array-vs-arraylist-in-java/
+- ArrayList vs LinkedList - 
+    - https://www.javatpoint.com/difference-between-arraylist-and-linkedlist
+    - https://www.geeksforgeeks.org/arraylist-vs-linkedlist-java/
+- Internal working of hashmap 
+    - https://www.javatpoint.com/working-of-hashmap-in-java
+    - https://www.youtube.com/watch?v=sw-j_ETGBEo&list=PL0zysOflRCen9SPmMO2XN1I2S9m96G_dx&index=3
+    - Hashing(&)
+        - https://madformath.com/calculators/basic-math/base-converters/decimal-to-binary-converter-with-steps/
+decimal-to-binary-converter-with-steps#calc43
+        - https://www.freecodecamp.org/news/java-operator-and-or-logical-operators/
+- Internal working of hashset 
+    - https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
+- Synchronized collection 
+    - https://medium.com/@the_infinity/javas-synchronized-collections-07712ae3b2cb
+
+### Streams Collections:
+https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/Streams.java
+https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/StreamsCustom.java
 
 ### Java 8 features:
 - Functional programming
@@ -271,26 +291,6 @@ Product prod = Product.getProduct("iPhone14");
         MyInterface.staticMethod(); // Output: Static method implementation
 
 These features enhance the flexibility and expressiveness of Java interfaces, making them more powerful and versatile.
-
-### Collections:
-https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/Streams.java
-https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/StreamsCustom.java
-- Array vs ArrayList -
-    - https://www.geeksforgeeks.org/array-vs-arraylist-in-java/
-- ArrayList vs LinkedList - 
-    - https://www.javatpoint.com/difference-between-arraylist-and-linkedlist
-    - https://www.geeksforgeeks.org/arraylist-vs-linkedlist-java/
-- Internal working of hashmap 
-    - https://www.javatpoint.com/working-of-hashmap-in-java
-    - https://www.youtube.com/watch?v=sw-j_ETGBEo&list=PL0zysOflRCen9SPmMO2XN1I2S9m96G_dx&index=3
-    - Hashing(&)
-        - https://madformath.com/calculators/basic-math/base-converters/decimal-to-binary-converter-with-steps/
-decimal-to-binary-converter-with-steps#calc43
-        - https://www.freecodecamp.org/news/java-operator-and-or-logical-operators/
-- Internal working of hashset 
-    - https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
-- Synchronized collection 
-    - https://medium.com/@the_infinity/javas-synchronized-collections-07712ae3b2cb
 
 ### Comparable vs comparator
 https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/CompareFields.java 
