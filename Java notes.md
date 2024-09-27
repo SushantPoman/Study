@@ -57,9 +57,9 @@ E.g Bank account stmt download(Abstract method - downloadStmt(type, data) ) - pd
 threads are running. once the task is over JVM will terminate them even though daemon thread still running.(called as sema phores or monitors)
 
 ### OOPS concepts:
-- Abstraction - hide implemention
-- Encapsulation - providing the abstraction like getters/setters and constructors
-- Inheritance -
+- Abstraction - process of hiding the implementation details and showing only the functionality to the users
+- Encapsulation -  process of binding data and methods together in a single unit, providing controlled access to data
+- Inheritance - 
 - Polymorphism
 - Overloading - multiple methods with same name and different parameters(prepare car - classic, suv, )
 - Overriding - same params and same method name - functionality differs(download stmt)
@@ -247,10 +247,16 @@ decimal-to-binary-converter-with-steps#calc43
 ### Streams Collections:
 https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/Streams.java
 https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/StreamsCustom.java
+- Intermediate operations:
+    - filter, map, flatMap, distinct, reduce, sorted, peek, limit, skip
+- Terminal operations:
+    - forEach, collect, reduce, allMatch, anyMatch, noneMatch, findFirst, findAny, max, min, toArray 
+- Collectors:
+    - joining, groupingBy, partitioningBy, counting, summarizingInt, averagingInt, mapping, teeing, toList, toSet, toMap, reducing, flatMapping, collectingAndThen, summarizingDouble
 
 ### Java 8 features:
 - Functional programming
-
+- DateTime Api - https://www.javatpoint.com/java-date
 - Optional keyword in java:
 To avoid NullPointerException in Java - we can use optional keyword\
 Product prod = Product.getProduct("iPhone14");
@@ -275,7 +281,7 @@ Product prod = Product.getProduct("iPhone14");
         myObj.regularMethod(); // Output: Regular method implementation
         myObj.defaultMethod(); // Output: Default method implementation
 
-#### Static Methods
+#### Static Methods:
 - Static methods in interfaces are similar to static methods in classes.
 - They can be invoked on the interface itself without requiring an instance of the interface.
 - Purpose: Organizing utility methods related to the interface.
