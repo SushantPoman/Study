@@ -43,11 +43,12 @@
 22. Saga design pattern
 23. why do we require interface
 24. Different types of polymorphism except method overloading and overriding
-25. Java 8 streams - In the list of employees, different ways to fetch the yougest employee
+25. Streams - In the list of employees, different ways to fetch the yougest employee
 26. Two threads T1 and T2. We want to print T1 output and once it all completes then print T2 output 
 27. what is method hiding
-28. Java 8 streams How parallel stream divide the list, internal working 
+28. Streams How parallel stream divide the list, internal working 
 29. Collections hashtable vs concurrentHashMap internal working
+30. Streams - "Desserted" In this string find out the first non repated character
 
 # Spring
 1. How can we enable security in api /  How do you secure your APIs?
@@ -94,6 +95,8 @@
 42. Interchange the annotations(@Service, @Repository or @Controller) what will happen, will it give compile or runtime error or it will work fine?
 43. Consumed API AWS can not accept more than 25 request per second, but our app can accept 2K. How can we handle it. Any setting to restrict number of calls?
 44. We have two databases mysql and postgresql. Mysql is for daily use and Postgresql will require after 2 weeks. We want this on demand basis, how can we do it?
+45. Domain driven design pattern
+
 
 # Database
 1. how to increase performance of queries

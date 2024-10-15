@@ -100,8 +100,8 @@ Use the following steps to configure any given cache provider:
 2. Add the required cache library to the classpath.
 3. Add the cache provider configuration file to the root classpath.
 
-https://github.com/SushantPoman/UserService/commit/a4b0131deda0ed55facc969b0d0a128c215f59a4
-https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f719309f
+- https://github.com/SushantPoman/UserService/commit/a4b0131deda0ed55facc969b0d0a128c215f59a4
+- https://medium.com/simform-engineering/spring-boot-caching-with-redis-1a36f719309f
 
 ## Service Registry:
 - It is used to maintain all apis information like name, status, url and health at one place. Also called as service discovery.

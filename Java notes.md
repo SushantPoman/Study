@@ -1,9 +1,3 @@
-
-
-## Java 8:
-https://www.youtube.com/watch?v=mafkhtals0o
-
-
 ### Tell me about yourself:- 
 - qualification - I have completed my graduation in Computer Engg from Pune University
 - skillset - Currently working on Springboot and microservice having experience of different tools like Eureka, Api gatewar, Resilience4j, Actuator, Zipkin, Redis, Promotheus and Kafka
@@ -47,7 +41,7 @@ Example:
 - ArrayIndexOutOfBoundException
 - ArithmeticException: Divide by 0, Convert maximum long value to int
 
-### diff between class and interface
+### Class vs Interface
 A class contains properties, methods and constructors where as interface contains only abstract methods which has only signatures without any implementation.\
 E.g Bank account stmt download(Abstract method - downloadStmt(type, data) ) - pdf format, csv format, json format
 
@@ -87,21 +81,6 @@ Interfaces can only contains abstract methods and we can't write non abstract me
     implement other class   yes         yes
 - Abstract class eg: baseController for error cases handling
 - Interface eg: service layer implementation
-
-### Arrays vs LinkedList:
-
-    Feature                 Array           Linkedlist
-    Data storage            Contigoues      Non contigoues memory
-    Access efficiency       High            Low
-    Insertion/Deletion      Low             High
-    Order of data           Important       Not Important
-    E.g. (cases)            Only retrieval  Update data, add, remove
-
-### Hashtable:
-It's a data structure used to store key and value pair. Its an efficient data structure for storing and retrieving the data as we can access the data in constant time.
-- put(key, value) -> going to insert data in HashTable -> new bucket and add this item to the bucket
-- get(key) -> based on hashcode it retrievs the data
-- remove(key) -> removed the key and value pair from the hash table
 
 ### Priority queue:
 It's an operating system feature.\
@@ -168,7 +147,7 @@ Avg 10 million people have home loan in pune -> RBI increased ROI 9.5 to 9.8 -> 
     - https://github.com/SushantPoman/JavaBasics/blob/main/src/MultiThreading/SequentialExecution.java
     - https://www.geeksforgeeks.org/joining-threads-in-java/
 
-### Thread lifecyce:
+### Thread lifecycle:
 Threads go through various stages or phases during their lifetime. At any given moment, a thread exists in one of the following states:
 1.	New State:
     - Occurs when a thread is created but not yet started.
@@ -197,8 +176,17 @@ In Java, you can use the Thread.getState() method to get the current state of a 
 yeild(), sleep()
 
 
+### Arrays vs LinkedList:
+
+    Feature                 Array           Linkedlist
+    Data storage            Contigoues      Non contigoues memory
+    Access efficiency       High            Low
+    Insertion/Deletion      Low             High
+    Order of data           Important       Not Important
+    E.g. (cases)            Only retrieval  Update data, add, remove
+
 ### Collections(uses):
-- Main benefits of colleciton framework:
+- Main benefits of collection framework:
     - Reusabliity - Common classes and common util methods
     - Quality(Performance) - Code already tested an easy to write
     - Speed - JVM created the collection by taking performance in the criteria
@@ -240,9 +228,14 @@ yeild(), sleep()
 decimal-to-binary-converter-with-steps#calc43
         - https://www.freecodecamp.org/news/java-operator-and-or-logical-operators/
 - Internal working of hashset 
-    - https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
+    - https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
 - Synchronized collection 
     - https://medium.com/@the_infinity/javas-synchronized-collections-07712ae3b2cb
+- Hashtable:
+    It's a data structure used to store key and value pair. Its an efficient data structure for storing and retrieving the data as we can access the data in constant time.
+    - put(key, value) -> going to insert data in HashTable -> new bucket and add this item to the bucket
+    - get(key) -> based on hashcode it retrievs the data
+    - remove(key) -> removed the key and value pair from the hash table
 
 ### Streams Collections:
 https://github.com/SushantPoman/JavaBasics/blob/main/src/Basics/Streams.java
@@ -328,7 +321,7 @@ Steps:
 https://www.geeksforgeeks.org/create-immutable-class-java/  
 
 ## SOLID principles:
-1. Single Responsibility Principle I
+1. Single Responsibility Principle
     - A class should have only one reason to change
     - eg. generate report, send report
     -   https://medium.com/@saygiligozde/applying-solid-principles-to-spring-boot-applications-191d7e50e1b3
@@ -486,7 +479,7 @@ https://www.youtube.com/watch?v=neSp9gap7Rw
 
 
 ### Java 8:
-- https://www.youtube.com/watch?v=mafkhtals0o
+- https://www.digitalocean.com/community/tutorials/java-8-features-with-examples
 
 ### Java 11:
 - https://www.baeldung.com/java-11-new-features
