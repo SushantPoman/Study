@@ -43,12 +43,16 @@
 22. Saga design pattern
 23. why do we require interface
 24. Different types of polymorphism except method overloading and overriding
-25. Streams - In the list of employees, different ways to fetch the yougest employee
+25. Streams - In the list of employees, different ways to fetch the youngest employee
 26. Two threads T1 and T2. We want to print T1 output and once it all completes then print T2 output 
 27. what is method hiding
 28. Streams How parallel stream divide the list, internal working 
 29. Collections hashtable vs concurrentHashMap internal working
 30. Streams - "Desserted" In this string find out the first non repated character
+31. In your project where you used functional interface and lambda?
+32. Explain System.out.println
+33. CompleteableFuture with 10 threads
+34. Multimodule in java 9
 
 # Spring
 1. How can we enable security in api /  How do you secure your APIs?
@@ -88,7 +92,7 @@
 35. Change management endpoints - actuator endpoint should be different from system endpoint
 36. Security, load balancing and scaling
 37. Design patterns - Singleton, Factory, Abstract Facotry, Facade, Decorator, Adapter, Strategy and Front controller 
-38. Session and Transaction lifecycle https://www.geeks forgeeks.org/hibernate-lifecycle/
+38. Session and Transaction lifecycle https://www.geeksforgeeks.org/hibernate-lifecycle/
 39. Instagram like functionality
 40. Storing artifacts jar
 41. How will you ensure that your application is available to all the consumers (Alert related to high traffic)
@@ -96,11 +100,30 @@
 43. Consumed API AWS can not accept more than 25 request per second, but our app can accept 2K. How can we handle it. Any setting to restrict number of calls?
 44. We have two databases mysql and postgresql. Mysql is for daily use and Postgresql will require after 2 weeks. We want this on demand basis, how can we do it?
 45. Domain driven design pattern
+46. How to receive custom model data in kafka consumers
+47. Web API vs Rest API
+48. Why to use Json
+49. Can we store DTO directly in database using repository's save method
+50. Hide the request and response in api or don't show those details in inspect-network tab
+51. If kafka consumer goes down, how you can handle it? //consumer.commitSync();
+52. Write main class of spring boot
+53. Write code without dependency injection(controller, service and repository)
+54. How you configured profiles(dev, test, uat, prod) in your application
+55. Why to use kafka, based on what things we conside it
+56. Handle locking and logging at kafka consumer side
+57. How would you create a book class that prevents adding duplicate books to a collection, where uniqueness is determined by the title and author?
+58. CQRS design pattern in microservices
+
 
 
 # Database
 1. how to increase performance of queries
 2. what is indexing
+3. Bucketing vs Partitioning vs Dynamic dividing vs Indexing
+4. Two tables employee(id, name, deptId, salary) and dept(deptId, deptName). Fetch the deptName based on highest salary in each dept.
+5. How many joins are there, explain all
+6. Can we store null values in primary key and foreign key
+
 
 # Agile
 1. what is process to calculate story points?

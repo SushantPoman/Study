@@ -87,40 +87,6 @@ It's an operating system feature.\
 Its also data structure that stores the elements along with their priorities.(how to create priority queue, set priority). It allows efficient of the element retrieval based on priority.Schedule tasks we can use this.\
 E.g. -> Banking sector -> Fund Transfer -> IMPS(Immediate), RTGS(Huge amount), NEFT(Take time and less money)
 
-### Heap memory and Stack memory:
-java.lang.OutOfMemoryException - common problem in big enterprise application\
-Don't have memory to create object ->\
-Drawaback of java - garbage collection algorithm(how it works internally)\
-memory problem only comes on heap memory.
-
-- Stack memory contains local variables like primitives, int, float, decimal etc and reference to the objects in the heap and also method parameters for classes.
-- Heap memory contains objects and string pools
-Code from screenshot:
-how outofmemory will come here------------
-
-Creating order with two products -> UseCase
-
-    Order order = new Order(); -> base class              order.setCustomer(cust);    Orderservice ser = new OrderService();
-    Customer customer = new Customer("Sushant","Poman");  order.setProduct(listp);    ser.createOrder(ord);
-    List<Product> listp = new ArrayList("TV","Laptop");   order.setInventory(inv);
-    Inventory inv = new Inventory(1,1);                   order.setPayment(payment);  ord -> 200Kb of data
-    Payment payment = new GooglePay("11111");             ..shipment                  service -> 10kb of data
-    Discount discount = new Discount("0.1");              ..discount                  2GB of PermGenSpace -> VM Argument
-    Shipment ship = new Shipment("1111","Pune");
-
---- I have one order how much memory with above object it will table
-
-    Amazon Avg order per hour -> 1 lakh
-    Our application -> 1 hr - 1000 order -> 1000*200 kb =
-
-    Garbage collection - 20 Orders per minute -> 4MB of data per minute.        finally{
-    1st min -> order 1 to order 20 -> 4MB                                           ser = null;
-    2nd min -> order 21 to order 40 -> 4MB                                          order = null;
-    3rd min -> order 41 to order 60 -> 4MB                                          cust = null;
-    6th..                                                                           inv = null;
-    7th ..                                                                      }
-Garbage collector don't know the scope of order, cust, service until we define finally.. it will pile up and it will throw OutOfMemoryExceptions
-
 ## Multithreading:
 Is a programming concept, allows multiple tasks to be executed concurrently. In java multithreading can be implemented using Thread class. A thread object represents a single thread of execution.\
 Advantages:

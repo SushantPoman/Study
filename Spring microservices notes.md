@@ -422,6 +422,7 @@ Arguments => -Dserver.port=8081 and apply and run it
 
 - Publishing topics: https://github.com/SushantPoman/OrderService/commit/70aa7903ca3ca5b59bc9ec7f3ac368b22839f567
 - Subscribing topics: https://github.com/SushantPoman/UserService/commit/6701600c8d32b6060b8307d6c93cf2d049887685
+- Custom model: https://stackoverflow.com/questions/40154086/how-to-create-custom-serializer-in-kafka
 
 References:
 - Official - https://kafka.apache.org/documentation/
