@@ -424,6 +424,10 @@ Arguments => -Dserver.port=8081 and apply and run it
 - Subscribing topics: https://github.com/SushantPoman/UserService/commit/6701600c8d32b6060b8307d6c93cf2d049887685
 - Custom model: https://stackoverflow.com/questions/40154086/how-to-create-custom-serializer-in-kafka
 
+Handle error at consumer side:
+- set enable.auto.commit=false
+- Acknowledgment ack - ack.acknowledge();
+
 References:
 - Official - https://kafka.apache.org/documentation/
 - Durgesh - https://www.youtube.com/watch?v=ei6fK9StzMM
