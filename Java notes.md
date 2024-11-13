@@ -141,6 +141,8 @@ Threads go through various stages or phases during their lifetime. At any given 
 In Java, you can use the Thread.getState() method to get the current state of a thread. The java.lang.Thread.State enum defines constants for each thread state.\
 yeild(), sleep()
 
+### CompletableFuture:
+https://tenusha.medium.com/running-multiple-tasks-in-parallel-with-completablefuture-and-custom-thread-pools-in-spring-boot-dc4bf0ee7d98
 
 ### Arrays vs LinkedList:
 
@@ -322,6 +324,37 @@ https://www.geeksforgeeks.org/create-immutable-class-java/
 
     <img src="images/solid_open_closed.png" alt="image" width="800" height="auto">
 
+        public interface NotificationService{
+            public void sendOTP(String medium);
+            public void sendTransactionNotification(String medium);
+        }
+
+        public class EmailNotification implements NotificationService{
+            public void sendOTP(String medium){
+                // write Logic using JavaEmail api
+            }
+            public void sendTransactionNotification(String medium){
+            }
+        }
+
+        public class MobileNotification implements NotificationService{
+            public void sendOTP(String medium){
+            // write Logic using Twilio SMS API
+            }
+            public void sendTransactionNotification(String medium){
+            }
+        }
+
+        public class WhatsAppNotification implements NotificationService{
+            public void sendOTP(String medium){
+            // write Logic using whatsapp API
+            }
+            public void sendTransactionNotification(String medium){
+            }
+        }
+    - By using the Template Method pattern, we can add new notification services without modifying existing code, thus adhering to the OCP.
+
+
 3. Liskov Substitution Principle
     - Derived or child classes must be substitutable for their base or parent classes"
     - e.g. https://www.jrebel.com/blog/solid-principles-in-java
@@ -444,13 +477,320 @@ https://www.youtube.com/watch?v=neSp9gap7Rw
     - https://www.geeksforgeeks.org/observer-method-design-pattern-in-java/
 
 
-### Java 8:
+### Java 8: March 18, 2014
 - https://www.digitalocean.com/community/tutorials/java-8-features-with-examples
+#### Features:
+1. Lambda Expressions
+2. Functional Interfaces
+3. Stream API
+4. Default Methods
+5. Optional Class
+6. Date and Time API (java.time) - 
+The new Date and Time API in java.time package provides a comprehensive and consistent model for date and time manipulation.
 
-### Java 11:
+        import java.time.LocalDate;
+        import java.time.LocalTime;
+        import java.time.LocalDateTime;
+
+        public class DateTimeExample {
+            public static void main(String[] args) {
+                LocalDate date = LocalDate.now();
+                LocalTime time = LocalTime.now();
+                LocalDateTime dateTime = LocalDateTime.now();
+
+                System.out.println("Current Date: " + date);
+                System.out.println("Current Time: " + time);
+                System.out.println("Current DateTime: " + dateTime);
+            }
+        }
+7. Method References
+8. Nashorn JavaScript Engine
+Java 8 introduced the Nashorn JavaScript engine, which allows you to run JavaScript code from within Java applications.
+
+        import javax.script.ScriptEngine;
+        import javax.script.ScriptEngineManager;
+        import javax.script.ScriptException;
+
+        public class NashornExample {
+            public static void main(String[] args) throws ScriptException {
+                ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
+                engine.eval("print('Hello from JavaScript')");
+            }
+        }
+
+### Java 9 Features: September 21, 2017
+1. Module System (Project Jigsaw) - 
+The module system, also known as Project Jigsaw, introduced a new way to organize Java code. It helps in dividing the JDK into modules and also allows developers to create their own modules.
+    
+        module com.example.myapp {
+            requires java.base;
+            exports com.example.myapp;
+        }
+2. JShell: The Java REPL - 
+JShell is a Read-Eval-Print Loop (REPL) for Java. It allows for interactive testing and debugging of Java code snippets.
+
+        $ jshell
+        |  Welcome to JShell -- Version 9
+        |  For an introduction type: /help intro
+
+        jshell> int x = 10;
+        x ==> 10
+
+        jshell> System.out.println(x * 2);
+        20
+3. Collection Factory Methods - 
+Java 9 introduced factory methods for creating immutable collections like List, Set, and Map.
+
+        import java.util.List;
+        import java.util.Map;
+        import java.util.Set;
+
+        public class CollectionFactoryMethods {
+            public static void main(String[] args) {
+                List<String> list = List.of("one", "two", "three");
+                Set<String> set = Set.of("a", "b", "c");
+                Map<Integer, String> map = Map.of(1, "one", 2, "two");
+
+                System.out.println(list);
+                System.out.println(set);
+                System.out.println(map);
+            }
+        }
+4. Enhanced try-with-resources -
+Java 9 allows using try-with-resources with resources that are not explicitly declared in the try-with-resources statement but are final or effectively final.
+
+        import java.io.BufferedReader;
+        import java.io.FileReader;
+        import java.io.IOException;
+
+        public class TryWithResources {
+            public static void main(String[] args) throws IOException {
+                BufferedReader reader = new BufferedReader(new FileReader("example.txt"));
+
+                try (reader) {
+                    System.out.println(reader.readLine());
+                }
+            }
+        }
+5. Private Methods in Interfaces -
+Java 9 allows defining private methods in interfaces to share common code between default methods.
+
+        interface MyInterface {
+            default void defaultMethod() {
+                privateMethod();
+            }
+
+            private void privateMethod() {
+                System.out.println("Private method in interface");
+            }
+        }
+
+        public class InterfacePrivateMethod implements MyInterface {
+            public static void main(String[] args) {
+                new InterfacePrivateMethod().defaultMethod();
+            }
+        }
+6. HTTP/2 Client -
+Java 9 introduced a new HTTP client API to support HTTP/2 and WebSocket, replacing the legacy HttpURLConnection.
+
+        import java.net.URI;
+        import java.net.http.HttpClient;
+        import java.net.http.HttpRequest;
+        import java.net.http.HttpResponse;
+
+        public class HttpClientExample {
+            public static void main(String[] args) throws Exception {
+                HttpClient client = HttpClient.newHttpClient();
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(new URI("http://example.com"))
+                        .GET()
+                        .build();
+                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                System.out.println(response.body());
+            }
+        }
+
+
+### Java 10 Features: March 20, 2018
+1. Local Variable Type Inference (var) - 
+Java 10 introduced the var keyword for local variable type inference, allowing you to declare variables without explicitly specifying their types.
+        
+        public class VarExample {
+            public static void main(String[] args) {
+                var str = "Hello, Java 10!";
+                var numbers = List.of(1, 2, 3, 4, 5);
+                System.out.println(str);
+                System.out.println(numbers);
+            }
+        }
+2. Unmodifiable Collections - 
+Java 10 added static methods like List.copyOf(), Set.copyOf(), and Map.copyOf() to create unmodifiable copies of collections.
+
+        import java.util.List;
+        import java.util.Set;
+        import java.util.Map;
+
+        public class UnmodifiableCollections {
+            public static void main(String[] args) {
+                List<String> originalList = List.of("one", "two", "three");
+                List<String> unmodifiableList = List.copyOf(originalList);
+                
+                // This will throw UnsupportedOperationException
+                // unmodifiableList.add("four");
+                
+                System.out.println(unmodifiableList);
+            }
+        }
+3. Optional.orElseThrow() -
+Java 10 added the orElseThrow() method to Optional, OptionalDouble, OptionalInt, and OptionalLong to throw a NoSuchElementException if no value is present.
+
+        import java.util.Optional;
+
+        public class OptionalExample {
+            public static void main(String[] args) {
+                Optional<String> optional = Optional.empty();
+                
+                // This will throw NoSuchElementException
+                // String value = optional.orElseThrow();
+                
+                System.out.println(optional.orElseThrow(() -> new NoSuchElementException("No value present")));
+            }
+        }
+4. Time-Based Release Versioning -
+Java 10 adopted a time-based release versioning scheme, with versions named as $FEATURE.$INTERIM.$UPDATE.$PATCH.
+5. Parallel Full GC for G1 - 
+Java 10 introduced parallel full garbage collection for the G1 garbage collector, improving performance.
+6. Application Class-Data Sharing - 
+Java 10 added support for application class-data sharing, which allows applications to share class metadata to reduce memory footprint and startup time.
+7. Experimental Java-Based JIT Compiler - 
+Java 10 included an experimental Java-based Just-In-Time (JIT) compiler, which can be enabled with the -XX:+UseExperimentalJVMFeatures option.
+8. Heap Allocation on Alternative Memory Devices - 
+Java 10 introduced support for allocating the Java heap on alternative memory devices, such as non-volatile memory.
+9. Additional Unicode Language-Tag Extensions - 
+Java 10 added support for additional Unicode language-tag extensions, allowing for more precise language and locale identification.
+10. Thread-Local Handshakes - 
+Java 10 introduced thread-local handshakes, which allow threads to perform operations without requiring a global VM state.
+
+### Java 11: September 25, 2018
 - https://www.baeldung.com/java-11-new-features
 - https://www.interviewbit.com/blog/java-11-features/
 - https://www.youtube.com/watch?v=4EBA7xyw4rI
+#### Features:
+1. New var for Lambda Parameters - 
+Java 11 allows the use of the var keyword to declare the formal parameters of an implicitly typed lambda expression.
+
+        import java.util.List;
+
+        public class VarLambdaExample {
+            public static void main(String[] args) {
+                List<String> names = List.of("John", "Jane", "Jack");
+
+                // Using var in lambda expression
+                names.forEach((var name) -> System.out.println(name));
+            }
+        }
+
+2. Running Java Files with java Command - 
+Java 11 enables the execution of a single-file program without explicitly compiling it first.
+
+        // HelloWorld.java
+        public class HelloWorld {
+            public static void main(String[] args) {
+                System.out.println("Hello, Java 11!");
+            }
+        }
+
+        // Command to run the file
+        $ java HelloWorld.java
+
+3. New String Methods - 
+Java 11 introduced several new methods in the String class.
+
+        public class StringMethodsExample {
+            public static void main(String[] args) {
+                // isBlank
+                System.out.println(" ".isBlank()); // true
+
+                // lines
+                String str = "Hello\nWorld\nJava 11";
+                str.lines().forEach(System.out::println);
+
+                // strip, stripLeading, stripTrailing
+                String text = "  Hello  ";
+                System.out.println(text.strip()); // "Hello"
+                System.out.println(text.stripLeading()); // "Hello  "
+                System.out.println(text.stripTrailing()); // "  Hello"
+
+                // repeat
+                String repeatStr = "Java";
+                System.out.println(repeatStr.repeat(3)); // "JavaJavaJava"
+            }
+        }
+4. Optional Enhancements - 
+Java 11 added new methods to the Optional class.
+
+        import java.util.Optional;
+
+        public class OptionalExample {
+            public static void main(String[] args) {
+                Optional<String> optional = Optional.of("Hello");
+
+                // isEmpty
+                System.out.println(optional.isEmpty()); // false
+
+                // ifPresentOrElse
+                optional.ifPresentOrElse(
+                    System.out::println,
+                    () -> System.out.println("Value is not present")
+                );
+            }
+        }
+5. HTTP Client (Standard)
+Java 11 standardizes the HTTP Client API, which was introduced as an incubator module in Java 9.
+        import java.net.URI;
+        import java.net.http.HttpClient;
+        import java.net.http.HttpRequest;
+        import java.net.http.HttpResponse;
+
+        public class HttpClientExample {
+            public static void main(String[] args) throws Exception {
+                HttpClient client = HttpClient.newHttpClient();
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(new URI("http://example.com"))
+                        .GET()
+                        .build();
+                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                System.out.println(response.body());
+            }
+        }
+6. Files Method Enhancements - 
+Java 11 added new methods to the Files class to read and write strings to and from files.
+
+        import java.nio.file.Files;
+        import java.nio.file.Path;
+        import java.nio.file.Paths;
+
+        public class FilesExample {
+            public static void main(String[] args) throws Exception {
+                Path path = Paths.get("example.txt");
+
+                // Write to file
+                Files.writeString(path, "Hello, Java 11!");
+
+                // Read from file
+                String content = Files.readString(path);
+                System.out.println(content);
+            }
+        }
+7. Deprecate Nashorn JavaScript Engine - 
+Java 11 deprecated the Nashorn JavaScript engine, which was introduced in Java 8.
+
+
+            
+
+
 
 ### Java 15:
 - https://www.baeldung.com/java-15-new

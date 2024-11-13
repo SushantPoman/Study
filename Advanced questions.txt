@@ -20,7 +20,7 @@ Queue, Priority Queue -> Binary Heap
 Sorted Set, Sorted Map, Array difference LinkedList
 IS-A and HAS-A Relationship
 Comparator and Comparable
-Difference between Clonalble and Copy
+Difference between Clonable and Copy
 Load Factor of all Collection framework
 Java 8 enhancement on collections like HashMap
 
@@ -216,204 +216,79 @@ Basic bugg fixes and trouble shooting
 
 
 - Synchronization, multithreading, executive framework
-
 -Explain about your profile?
-
 -Which type of testing you are using?
-
 -When collision will occur in hashmap?
-
 -Any difference in implementation of hashmap and how it is different in java series?
-
 -Worked on multi threading?
-
 - What are the ways of threading?
-
 -How to override method in threading?
-
 -Whether T1.run will show output or T1.start? which tyoe of exception it will throw?
-
 -In microservices how you can call two API?
-
 -Any pre defined library classes used?
-
 -Worked on java 1.8?
-
 -Key features of Java 1.8?
-
 -Class A extend B,C whether it is possible in Java?
-
 -What is default and static method -can you give examples?
-
 -which problem can be solved by using this?
-
 -Can you override default method?
-
--ArrayList l1=new ArrayList()
-
- 
-
-List l1=new List()
-
- 
-
-List l1=new ArrayList()
-
- 
-
-ArrayList l1= new List()
-
- 
-
-which one is valid?
-
- 
-
--Thread t1=new Thread(new Runnable(){
-
- 
-
-@override
-
-public void run(){
-
-syso("Hello World")
-
-}
-
- 
-
-});
-
- 
-
-is it possible?
-
- 
-
 -Write simple statement on stream api.
-
 to print 100 users having 3 attributes?
-
 -print name of users having user ID
-
- 
-
 -Write SQL query for employee ID, Employee name, and 2nd largest Salary.
-
- 
-
- 
 
 Architecture-
 
 -Difference between runtime and compile time exception?
-
 -Difference between final, finally, and finalize?
 
 -try{
-
- 
-
 int number=100/10;
-
- 
-
 return 10;
-
- 
-
 }catch(Exp e){
-
 return 5;
-
 }finally{
-
 return 0;
-
 }
-
- 
-
 What is the output????
 
- 
-
 Springboot:
-
- 
-
 -What is dependency injection in springboot?
-
 -What are the difference method to achieve this?
-
 -Ever used @bin annotation?
-
 -is this a way of creating injection?
-
 -Ever used scope annotation?
-
 -Used @qualifier annotation?
-
 - Which security protocol you are using?
-
 -Ever creatd jwd token?
-
 -how you can intercept request in application?
-
 -if you are calling service A to service B, you have shared jwd token to B then whether it will check security?
-
 -What are 2 component of jwd tocken?
-
 -Ever decoded Jwd tocken?
-
 -Write simple springboot app for social media, how you will write?
-
 -What are the various way to connect database?
-
 -Ever written custom query?
-
 -Do you know about patch?
-
 -What is put request?
-
 -Generic exception handlers?
-
 -Which version of springboot used?
-
 -Any catching mechanism used?
-
 -Worked on composite key?
-
 -What are the differnt annotation you are using?
-
 -using app property/
-
 - Ever used stagger?
-
 -How validation are happening?
-
 -Ever used distributed tracing?
-
 -Ever used spring AVP?
-
 -Knowledge on Docker, Kubernetes?
-
 -Worked on GIT hub?
-
 -What is cherry pick?
-
 -What is Rebase?
-
 -What will happen if you have Rebase?
-
- 
 
 Please find the interview questions mentioned below.
 
- 
-
-Single tone class any ways achieve and different questions on singleton.
+Singleton class any ways achieve and different questions on singleton.
 String code question like “the sun rise on the east” to change like string of each word should change like upper case. Output: The Sun Rise on the East
 Collection part went like all classes and interfaces
 Srpingboot internally working
@@ -422,7 +297,6 @@ Junit testing
 Mockitho working
 Ploymorphism complete questions
  
-
 Interview focus area:
 
 Java 8
@@ -436,85 +310,46 @@ DB queries
 Programming
 
  
-
 Which one is correct:
-
 1..
-
 ArrayList l1=new ArrayList() 
-
 List l1=new List()
-
 List l1=new ArrayList()
-
 ArrayList l1= new List()
 
 2.. What will be the output and why?
-
 Thread t1=new Thread(new Runnable(){
-
 @override
-
 public void run(){
-
 syso("Hello World")
-
 }
-
 })
 
-3…
-
-Whats the difference
-
+3… Whats the difference
 t1.run()
-
 t1.start()
-
 t1.start()
 
 4.. Output and why?
-
 private int calculate(){
-
 try{
-
 int number=100/0;
-
 return 10;
-
  }catch(Exp e){
-
 return 5;
-
 }finally{
-
 return 0;
-
 }
-
 }
 
 5..
-
 Class A extends B,C
-
 Class A implemets I1,I2
-
 I1 interface
-
 void calculate()
-
  I2 interface
-
  void calculate()
 
-6..
-
-Write a code:
-
+6..Write a code:
 String input="AAABBDDACCC"
-
- 
-
 output="3A2B2D1A3C"
