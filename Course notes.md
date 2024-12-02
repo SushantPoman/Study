@@ -116,29 +116,30 @@ https://github.com/HarshaPrimeTrainings/SpringBoot_MicroService_SpringCloud_Secu
 
 Code:
 
-    <dependency>
-        <groupId>org.springdoc</groupId>
-        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-        <version>2.3.0</version>
-    </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.5.12</version>
+        </dependency>
 
-    import org.springdoc.core.models.GroupedOpenApi;
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.context.annotation. Configuration;
+        import org.springframework.context.annotation.Bean;
+        import org.springframework.context.annotation.Configuration;
+        import io.swagger.v3.oas.models.Components;
+        import io.swagger.v3.oas.models.OpenAPI;
+        import io.swagger.v3.oas.models.info.Info;
 
-    @Configuration
-    public class SwaggerConfig {
-    
-        @Bean
-        public GroupedOpenApi controllerApi() {
-            return GroupedOpenApi.builder()
-                    .group("controller-validation")
-                    .packagesToScan ("com.lex.validators") 
-                    // Specify the package to scan 
-                    .build();
-    I
+        @Configuration
+        public class OpenApiConfig {
+
+            @Bean
+            public OpenAPI customOpenAPI() {
+                
+                return new OpenAPI()
+                        .components(new Components())
+                        .info(new Info().title("Title API").description(
+                                "Description of Microservice"));
             }
-    }
+        }
 
 ### 38-35-SBMS-01-DEC-23 - Spring cloud -> Eureka server(Internal MS communication), Horizontal load balancing
 Service registry - It is used to maintain all apis information like name, status, url and health at one place. Also called as service discovery.\

@@ -469,7 +469,7 @@ Dockerfile inside springboot:
 - Auto scaling
 - cloudfront - cdn, domain name, public and private certificates,
 - WAF - web application firewall
-
+- ECR/EKS(Deploy spring boot application) - https://www.youtube.com/watch?v=mVSFHgItaa4
 ## Actuator:
 - Provides built in production ready features to monitor and manage your application.
 - Provides endpoint like /actuator, /actuator/health, /actuator/metric
