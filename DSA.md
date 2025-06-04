@@ -47,3 +47,20 @@
 - Backtracking
 - Greedy
 - Dynamic programming
+
+
+## DSA Course Launch | About Course | Data Structure and Algorithms [Hindi]
+https://www.youtube.com/watch?v=ASATPGC54_l&list=PL0zysOflRCel693wumX2pbb-Zvi-5Ctea
+https://github.com/LearnCodeWithDurgesh/YouTube-DSA-Series
+
+## Java & DSA Course for Placement 
+https://www.youtube.com/watch?v=yRpLlJmRo2w&list=PLfqMhTWNBTe3LtFWcvwpqTkUSIB32kJop
+
+## 70 Leetcode problems in 5+ hours (every data structure) (full tutorial)
+https://www.youtube.com/watch?v=lvO88XxNAzs
+
+## LLD Shreyash:
+https://www.youtube.com/playlist?list=PL6W8uoQQ2c61X_9e6Net0WdYZidm7zooW
+
+## HLD Shreyansh:
+https://www.youtube.com/playlist?list=PL6W8uoQQ2c63W58rpNFDwdrBnq5G3EfT7
