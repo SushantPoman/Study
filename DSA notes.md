@@ -210,58 +210,7 @@ A stack is a classic example of an ADT that operates on the Last In, First Out
     The implementation can vary: a stack can be implemented using arrays,
 linked lists, or any other data structure, but this is hidden from the user.
 - Example Code (Java):
-
-        // Stack ADT Interface
-        public interface StackADT<T> {
-            void push(T item);
-            T pop();
-            T peek();
-            boolean isEmpty();
-            int size();
-        }
-        // Array-based Stack Implementation
-        public class ArrayStack<T> implements StackADT<T> {
-            private T[] stack;
-            private int top;
-            private int capacity;
-            @SuppressWarnings("unchecked")
-            public ArrayStack(int capacity) {
-                this.capacity = capacity;
-                stack = (T[]) new Object[capacity];
-                top = -1;
-            }
-            @Override
-            public void push(T item) {
-                if (top == capacity - 1) {
-                    System.out.println("Stack is full");
-                    return;
-                }
-                stack[++top] = item;
-            }
-            @Override
-            public T pop() {
-                if (isEmpty()) {
-                    System.out.println("Stack is empty");
-                    return null;
-                }
-                return stack[top--];
-            }
-            @Override
-            public T peek() {
-                if (isEmpty()) {
-                    return null;
-                }
-                return stack[top];
-            }
-            @Override
-            public boolean isEmpty() {
-                return top == -1;
-            }
-            @Override
-            public int size() {
-                return top + 1;
-            }
-        }
+    - https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/2_array/ArrayStack.java
     
 ## Array:
 An array is a data structure that stores a fixed-size, sequential collection of elements of the same data type. Arrays are one of the simplest data structures and are widely used because of their efficiency in accessing elements.
@@ -300,38 +249,7 @@ size of the array.
             }
 
 #### Example Code (Java):    
-    
-            public class ArrayExample {
-                public static void main(String[] args) {
-                    // Creating an array of integers with size 5
-                    int[] arr = new int[5];
-                    // Inserting values into the array
-                    arr[0] = 10;
-                    arr[1] = 20;
-                    arr[2] = 30;
-                    arr[3] = 40;
-                    arr[4] = 50;
-                    // Accessing and printing a specific element
-                    System.out.println("Element at index 2: " + arr[2]);
-                    // Output: 30
-                    // Updating an element at a specific index
-                    arr[2] = 35;
-                    // Printing all elements (Traverse)
-                    System.out.println("Array Elements:");
-                    for (int i = 0; i < arr.length; i++) {
-                        System.out.println(arr[i]);
-                    }
-                }
-            }
-
-            Output:
-                Element at index 2: 30
-                Array Elements:
-                10
-                20
-                35
-                40
-                50
+- https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/2_array/ArrayOperations.java
 
 #### Relationship Between ADT and Array
 1. ADT Perspective:
@@ -343,6 +261,12 @@ implementation (how the elements are stored in memory) is hidden.
 element is stored in contiguous memory locations. This allows for efficient
 access using the index.
 
+#### Linear search:
+https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/2_array/LinearSearch.java
+
+#### Binary search:
+https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/2_array/BinarySearch.java
+
 ## Linked List:
 
 ### Introduction to Linked List:
@@ -352,10 +276,16 @@ access using the index.
     - Pointer/Link - a reference to the next node in the sequence
 
 ### Types of Linked list:
-- Singly - Each node has a single pointer pointing to the next node. The last node point to NULL
-- Doubly - Each node has two pointers: one points to the next node and the other points to the previous node
-- Circular - The last node points back to the first node, forming a loop
-- Doubly circular - A doubly linked list where the last node's pointer points to the first node, and the first node's previous pointer points to the last node
+- Singly 
+    - Each node has a single pointer pointing to the next node. The last node point to NULL
+    - https://github.com/SushantPoman/Study/tree/main/DSA%20Durgesh/Codes/3_linked_list/singly
+- Doubly 
+    - Each node has two pointers: one points to the next node and the other points to the previous node
+    - https://github.com/SushantPoman/Study/tree/main/DSA%20Durgesh/Codes/3_linked_list/doubly
+- Circular 
+    - The last node points back to the first node, forming a loop
+- Doubly circular 
+    - A doubly linked list where the last node's pointer points to the first node, and the first node's previous pointer points to the last node
 
 ### Key operations:
 - Insertion:
@@ -378,7 +308,6 @@ access using the index.
 - Sequential access: Nodes must be accessed sequentially, making indexing ineffient compared to arrays
 - Extra complexity: Managing pointers requires careful attention to avoid issues like memory leaks
 
-
 ## Circular Linked List
 In a circular doubly linked list, each node has two pointers ( next and prev ), just
 like in a regular doubly linked list, but the difference is that:
@@ -396,112 +325,7 @@ backward directions continuously.
 wrapping around, like task scheduling.
 
 ### Circular Doubly Linked List Implementation in Java
-    public class CircularDoublyLinkedList {
-        private Node head;
-        private Node tail;
-    
-        public CircularDoublyLinkedList() {
-            head = null;
-            tail = null;
-        }
-    
-        // Add data to the front (head)
-        public void addFront(int data) {
-            Node newNode = new Node(data);
-            if (head == null) {
-                head = tail = newNode;
-                head.next = head;
-                head.prev = head;
-            } else {
-                newNode.next = head;
-                newNode.prev = tail;
-                head.prev = newNode;
-                tail.next = newNode;
-                head = newNode;
-            }
-        }
-    
-        // Add data to the end (tail)
-        public void addEnd(int data) {
-            Node newNode = new Node(data);
-            if (tail == null) {
-                head = tail = newNode;
-                head.next = head;
-                head.prev = head;
-            } else {
-                newNode.prev = tail;
-                newNode.next = head;
-                tail.next = newNode;
-                head.prev = newNode;
-                tail = newNode;
-            }
-        }
-    
-        // Delete from front (head)
-        public void deleteFront() {
-            if (head == null) {
-                System.out.println("List is empty!");
-                return;
-            }
-            if (head == tail) { // Only one node
-                head = tail = null;
-            } else {
-                head = head.next;
-                head.prev = tail;
-                tail.next = head;
-            }
-        }
-    
-        // Delete from end (tail)
-        public void deleteEnd() {
-            if (tail == null) {
-                System.out.println("List is empty!");
-                return;
-            }
-            if (head == tail) { // Only one node
-                head = tail = null;
-            } else {
-                tail = tail.prev;
-                tail.next = head;
-                head.prev = tail;
-            }
-        }
-    
-        // Display forward
-        public void displayForward() {
-            if (head == null) return;
-            Node current = head;
-            do {
-                System.out.print(current.data + "\t");
-                current = current.next;
-            } while (current != head);
-            System.out.println();
-        }
-    
-        // Display backward
-        public void displayBackward() {
-            if (tail == null) return;
-            Node current = tail;
-            do {
-                System.out.print(current.data + "\t");
-                current = current.prev;
-            } while (current != tail);
-            System.out.println();
-        }
-    
-        // Node class
-        private static class Node {
-            int data;
-            Node next;
-            Node prev;
-    
-            public Node(int data) {
-                this.data = data;
-                next = null;
-                prev = null;
-            }
-        }
-    }
+- https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/3_linked_list/circular/CircularLinkedList.java
 
 
 ### Key Operations:

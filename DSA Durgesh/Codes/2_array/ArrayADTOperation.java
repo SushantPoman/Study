@@ -1,6 +1,6 @@
 
 
-public class ArrayOperation {
+public class ArrayADTOperation {
     public static void main(String[] args) {
 
         ArrayADT array = new ArrayADTImpl(10);
