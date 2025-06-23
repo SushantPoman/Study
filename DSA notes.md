@@ -135,10 +135,9 @@ We are interested in the rate of growth over time with respect to the inputs tak
                 }
             }
     - Explanation: In this algorithm, each element has n! possible permutations, meaning the number of possible solutions grows factorially as the input size increases. For an input of size n , the algorithm has O(n!) time complexity, which is extremely inefficient for large inputs.
-- Execution order
-        $$
-        O(1) < O(\log \log n) < O(\log n) < O(\sqrt{\log n}) < O(n) < O(n \log n) < O(n^2) < O(n^3) < O(n^k) < O(2^n)
-        $$
+- Execution order:  
+        O(1) < O(log log n) < O(log n) < O(√log n) < O(n) < O(n log n) < O(n²) < O(n³) < O(n^k) < O(2^n)
+        
     - Constant time O(1): Fastest, does not depend on n.
     - Double logarithmic O(log log n): Grows slower than O(log n).
     - Logarithmic O(log n): Common in binary search.
@@ -173,9 +172,7 @@ We are interested in the rate of growth over time with respect to the inputs tak
     - Recursive algorithms may have more complex time complexities that depend on the depth of recursion.
 - Step 3: Drop constants and non-dominant terms.
     - If you have O(n + 100), it's simply O(n) because constants don't matter in Big O notation.
-    - For example, O(n2 + n) is simplified to O(n2) because the quadratic term
-dominates.
-
+    - For example, O(n2 + n) is simplified to O(n2) because the quadratic term dominates.
     
 ## ADT and Array
 
@@ -209,7 +206,7 @@ A stack is a classic example of an ADT that operates on the Last In, First Out
 2. Implementation:
     The implementation can vary: a stack can be implemented using arrays,
 linked lists, or any other data structure, but this is hidden from the user.
-- Example Code (Java):
+- Example Code (Java - Take it as only example of ADT with Stack):
     - https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/2_array/ArrayStack.java
     
 ## Array:
@@ -260,6 +257,8 @@ implementation (how the elements are stored in memory) is hidden.
     - In programming, arrays are implemented at a low level where each
 element is stored in contiguous memory locations. This allows for efficient
 access using the index.
+3. Example: 
+    - https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/2_array/ArrayADTImpl.java
 
 #### Linear search:
 https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/2_array/LinearSearch.java
@@ -308,7 +307,7 @@ https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/2_array/Bina
 - Sequential access: Nodes must be accessed sequentially, making indexing ineffient compared to arrays
 - Extra complexity: Managing pointers requires careful attention to avoid issues like memory leaks
 
-## Circular Linked List
+### Circular Linked List:
 In a circular doubly linked list, each node has two pointers ( next and prev ), just
 like in a regular doubly linked list, but the difference is that:
 1. The next pointer of the last node points to the head node.
@@ -316,7 +315,7 @@ like in a regular doubly linked list, but the difference is that:
 This creates a circular structure, allowing traversal from any node in a continuous
 loop in either direction.
 
-### Key Concepts of Circular Doubly Linked List:
+#### Key Concepts of Circular Doubly Linked List:
 1. Circular Structure: The next of the last node points back to the head, and the
 prev of the head points to the last node.
 2. Traversal in Both Directions: Nodes can be traversed in both forward and
@@ -324,18 +323,17 @@ backward directions continuously.
 3. Efficient for Cyclic Data Processing: Useful in applications that require
 wrapping around, like task scheduling.
 
-### Circular Doubly Linked List Implementation in Java
+#### Circular Doubly Linked List Implementation in Java
 - https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/3_linked_list/circular/CircularLinkedList.java
 
-
-### Key Operations:
+#### Key Operations:
 - Insertion at the beginning and end: Adjusts head and tail pointers and sets
 up circular links.
 - Deletion from the beginning and end: Updates head , tail , and adjusts the
 circular references.
 - Display Forward/Backward: Traverse until reaching the starting node again.
 
-### Important Interview Questions on Circular Doubly Linked Lists
+#### Important Interview Questions on Circular Doubly Linked Lists
 1. What are the differences between circular singly, doubly, and non-circular
 linked lists?
 2. How would you detect if a linked list is circular (circular singly or doubly)?
@@ -344,3 +342,55 @@ linked lists?
 a playlist or a round-robin scheduler?
 5. How would you find the middle element in a circular linked list?
 6. Can you implement a queue using a circular doubly linked list? How?
+
+## Stack:
+
+A stack is a linear data structure that follows the Last In, First Out (LIFO) principle.
+This means that the last element added to the stack will be the first to be removed.
+Imagine a stack of plates: the last plate you place on top is the first one you take
+off.
+
+#### Key Points about Stack
+1. LIFO Principle: Last In, First Out.
+2. Basic Operations:
+    - Push: Adds an element to the top of the stack.
+    - Pop: Removes the element from the top of the stack.
+    - Peek: Returns the top element without removing it.
+    - isEmpty: Checks if the stack is empty.
+3. Applications:
+    - Expression evaluation and syntax parsing.
+    - Backtracking algorithms (like maze solving).
+    - Undo operations in applications.
+    - Function call management in recursion.
+4. Example of a Stack
+    Imagine you’re reading through books:
+    1. You put Book 1 on the table, followed by Book 2, then Book 3.
+    2. Now, to read, you start with Book 3 (the last one placed).
+    3. You remove Book 3 (pop), then read Book 2, and finally Book 1.
+
+#### Implementation of Stack in Java
+- Java has a built-in Stack class in java.util package, but we can also implement it
+manually using an array or linked list.
+- Using Array - https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/4_stack/Stack.java
+- Using LinkedList - https://github.com/SushantPoman/Study/blob/main/DSA%20Durgesh/Codes/4_stack/StackLinkedList.java
+
+#### Interview Questions
+1. Explain the LIFO principle with a real-life example.
+- The LIFO (Last In, First Out) principle means that the last element added to a stack is the first one to be removed. A real-life example of LIFO is a stack of plates. When you add plates to the stack, each new plate goes on top. To take a plate, you start from the top, removing the last plate you added first.
+
+2. Describe the differences between a stack and a queue.
+- Stack follows the LIFO (Last In, First Out) principle, where the last element added is the first to be removed.
+- Queue follows the FIFO (First In, First Out) principle, where the first element added is the first to be removed.
+- Common uses:
+    - Stack: Used in backtracking, function call management, and expression evaluation.
+    - Queue: Used in scheduling processes, handling requests in order, and breadth-first search in graphs.
+
+3. Explain the function of the call stack in recursion.
+- In recursion, each function call is placed on the call stack. The call stack helps to:
+1. Store the state of each function call, including variables and the point to
+return after the call completes.
+2. Track the order of calls in a LIFO manner, so each function call is executed
+and returned in the reverse order of how they were called.
+- For example, in calculating a factorial, each call (e.g., factorial(3) ) depends on a
+previous call (e.g., factorial(2) ). The call stack stores these until it reaches the
+base case and then unwinds to return results in the reverse order.
