@@ -387,10 +387,38 @@ manually using an array or linked list.
 
 3. Explain the function of the call stack in recursion.
 - In recursion, each function call is placed on the call stack. The call stack helps to:
-1. Store the state of each function call, including variables and the point to
-return after the call completes.
-2. Track the order of calls in a LIFO manner, so each function call is executed
-and returned in the reverse order of how they were called.
+    1. Store the state of each function call, including variables and the point to
+    return after the call completes.
+    2. Track the order of calls in a LIFO manner, so each function call is executed and returned in the reverse order of how they were called.
 - For example, in calculating a factorial, each call (e.g., factorial(3) ) depends on a
 previous call (e.g., factorial(2) ). The call stack stores these until it reaches the
 base case and then unwinds to return results in the reverse order.
+
+## Queue"
+A Queue is a linear data structure that follows the First In, First Out (FIFO)
+principle, meaning the element added first will be removed first. It is similar to a
+real-life queue (e.g., a line at a ticket counter).
+
+#### Key Operations:
+1. Enqueue: Adding an element to the end of the queue.
+2. Dequeue: Removing an element from the front of the queue.
+3. Peek/Front: Getting the front element without removing it.
+4. IsEmpty: Checking if the queue is empty.
+5. IsFull: (For fixed-size queues) Checking if the queue is full.
+
+#### Types of Queues:
+Queues come in different variations based on their structure and behavior. Below
+are the main types of queues with their descriptions and examples:
+1. Simple Queue (Linear Queue):
+- Definition: A basic queue that follows the First In, First Out (FIFO) principle. Elements are added at the rear and removed from the front.
+- Key Operations:
+    - Enqueue: Add an element at the rear.
+    - Dequeue: Remove an element from the front.
+- Limitation: Once the queue is full, no more elements can be added even if some are removed (unless implemented as circular).
+- Use Case: Customer service ticketing system.
+- Example in Java:
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(10); // Enqueue
+        queue.add(20);
+        System.out.println(queue.poll()); // Dequeue: 10
