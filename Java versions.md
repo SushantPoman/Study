@@ -1528,3 +1528,252 @@ The Z Garbage Collector (ZGC) now uses generational mode by default, improving g
         // Example usage of ZGC: Generational Mode by Default is typically done at the JVM level and not directly in code.
 
 Main features: Markdown documentation, primitive types in patterns, and enhancements to structured concurrency and scoped values.
+
+### Java 24: March 18, 2025
+
+1. Inline Classes (JEP 484 - Final) -
+Inline classes are intended to reduce memory overhead and improve performance by allowing developers to define classes that behave like primitives in terms of memory layout.
+
+        public inline class Temperature {
+            private final double value;
+
+            public Temperature(double value) {
+                this.value = value;
+            }
+
+            public double toCelsius() {
+                return value - 32 * 5.0 / 9;
+            }
+
+            public double toFahrenheit() {
+                return value * 9.0 / 5 + 32;
+            }
+        }
+
+2. Pattern Matching for Records (JEP 485 - Final) -
+Extends pattern matching to support records, enabling developers to destructure and match against record components more easily in switch statements and instanceof.
+
+        public class PatternMatchingForRecords {
+            public static void main(String[] args) {
+                var person = new Person("John", 30);
+                if (person instanceof Person(String name, int age)) {
+                    System.out.println(name + " is " + age + " years old.");
+                }
+            }
+
+            record Person(String name, int age) {}
+        }
+
+3. Virtual Threads (JEP 429 - Final) -
+Virtual threads are lightweight threads managed by the JVM, enabling more scalable and efficient concurrent programming by making it easier to create and manage many thousands of threads.
+        
+        public class VirtualThreadExample {
+            public static void main(String[] args) {
+                var executor = Executors.newVirtualThreadPerTaskExecutor();
+                executor.submit(() -> System.out.println("Hello from virtual thread!"));
+                executor.close();
+            }
+        }
+
+4. Foreign Function & Memory API (JEP 440 - Final)
+Enhances the Foreign Function & Memory API to allow easier and safer interaction with native code and memory management outside the Java heap.
+
+        public class ForeignMemoryExample {
+            public static void main(String[] args) {
+                try (MemorySegment segment = MemorySegment.allocateNative(100)) {
+                    segment.set(MemoryAddress.ofLong(0), 12345);
+                    System.out.println("Native value: " + segment.get(MemoryAddress.ofLong(0)));
+                }
+            }
+        }
+
+5. Project Loom: Continuations and Fibers (JEP 451 - Preview) -
+Introduces Continuations and Fibers for more advanced control flow in Java. This feature enables building efficient, cooperative multitasking without the complexity of threads.
+
+        public class ContinuationsExample {
+            public static void main(String[] args) {
+                Continuation.create(() -> {
+                    System.out.println("Running continuation...");
+                }).run();
+            }
+        }
+
+6. Improved Nullability Annotations (JEP 490 - Preview) -
+Adds more powerful annotations to define and check nullability constraints at compile-time, providing better support for static analysis tools and improved code safety.
+
+        public class NullabilityExample {
+            public void printMessage(@NonNull String message) {
+                System.out.println(message);
+            }
+        }
+
+7. Dynamic Constants (JEP 487 - Preview) -
+Introduces a new class of constants whose value can be computed at runtime, as opposed to being static values known at compile-time.
+
+        public class DynamicConstants {
+            public static void main(String[] args) {
+                var dynamicConstant = DynamicConstant.of(() -> System.currentTimeMillis());
+                System.out.println("Dynamic constant: " + dynamicConstant.get());
+            }
+        }
+
+8. Memory Efficiency in Streams (JEP 455 - Preview) -
+Stream operations will now support more memory-efficient ways of processing large datasets, reducing the overhead of stream buffering and intermediate operations.
+
+        public class MemoryEfficientStream {
+            public static void main(String[] args) {
+                Stream<Long> numbers = LongStream.range(0, 1_000_000).boxed();
+                numbers.parallel().forEach(n -> System.out.println(n));
+            }
+        }
+    
+9. Unified API for Date and Time Operations (JEP 515 - Preview)
+A new API unifies various date, time, and calendar operations into a more consistent and user-friendly interface.
+
+        public class UnifiedDateTimeAPI {
+            public static void main(String[] args) {
+                LocalDate today = LocalDate.now();
+                LocalTime now = LocalTime.now();
+                System.out.println("Today's date: " + today);
+                System.out.println("Current time: " + now);
+            }
+        }
+    
+10. Enhanced Compiler (JEP 470 - Preview)
+The compiler will have enhanced optimizations for multi-core systems, making better use of available processors by dynamically compiling code based on runtime conditions.
+
+11. Stream Gatherers (JEP 485) – Finalized in Java 24, this enhancement to the Stream API allows new intermediate operations (“gatherers”) for more expressive pipelines.
+
+        Stream<String> s = Stream.of("a","b","c","d");
+        var g = s.gather(window(2)).map(win -> String.join("-", win));
+        // Example: ["a-b","b-c","c-d"]
+
+Main features: Class-File API, Stream Gatherers, Compact Object Headers, Ahead-of-Time Class Loading & Linking, Primitive Types in Patterns, instanceof, and switch, Scoped Values
+
+### Java 25: September 16, 2025
+
+1. JEP 507: Primitive Types in Patterns, instanceof, and switch (Third Preview) -
+This feature extends pattern matching to support primitive types in instanceof and switch statements, improving readability and reducing verbosity.
+
+        static void inspect(Object o) {
+            if (o instanceof int i) {
+                System.out.println("It's an int: " + i);
+            } else if (o instanceof double d) {
+                System.out.println("It's a double: " + d);
+            } else {
+                System.out.println("Other type: " + o);
+            }
+        }
+
+2. JEP 511: Module Import Declarations -
+Adds the ability to import entire modules directly, reducing verbosity and simplifying the usage of modular libraries.
+
+        // module-info.java
+        module myapp {
+            requires java.logging;
+            requires com.example.lib;
+            // then in code you can import module-level convenience
+        }
+
+3. JEP 512: Compact Source Files and Instance Main Methods -
+Reduces boilerplate in source files, especially for smaller applications, by allowing the use of instance methods as main without needing a public class declaration.
+
+        // file: Hello.java (no public class required)
+        void main(String[] args) {
+            System.out.println("Hello, Java 25!");
+        }
+
+4. JEP 513: Flexible Constructor Bodies -
+Enhances constructor flexibility by allowing you to initialize fields and perform other actions before calling super(...) in constructor chains.
+
+        public class MySub extends MyBase {
+            private final int x;
+            public MySub(int x) {
+                this.x = x;
+                System.out.println("value: " + x);
+                super();  // allowed after doing work
+            }
+        }
+
+5. JEP 506: Scoped Values -
+Scoped values offer a safer and more efficient alternative to thread-local variables, allowing efficient sharing of values between threads with proper scoping rules.
+
+        ScopedValue<String> user = ScopedValue.of("Alice");
+        try (var scope = user.withValue("Bob")) {
+            System.out.println(user.get());  // prints “Bob”
+        }
+        System.out.println(user.get());     // prints “Alice”
+
+6. JEP 515: Ahead-of-Time (AOT) Method Profiling -
+Improves the performance of Java applications by generating and storing method profiles ahead of time, resulting in faster startup and better JIT compilation.
+
+        java -XX:AOTMode=create -XX:AOTCache=myapp.aot -cp myapp.jar com.example.Main
+
+7. JEP 519: Compact Object Headers -
+Reduces memory usage by reducing the size of object headers in the JVM, particularly for 64-bit architectures. This improvement reduces the memory footprint of many small objects.
+Note: No source code, this is a JVM-level optimization.
+
+8. JEP 520: Memory Access API (Incubator) -
+Introduces a new API to provide safe and efficient access to memory regions, which is especially useful for low-level memory manipulation.
+
+        try (var memory = MemorySegment.allocateNative(100)) {
+            memory.put(0, (byte) 42);
+            byte b = memory.get(0);
+            System.out.println(b);  // Prints 42
+        }
+
+9. JEP 523: Data-Oriented Programming API (Incubator) -
+Adds a new API for building data-centric applications, particularly useful for high-performance applications that process large datasets efficiently.
+
+10. JEP 526: Simplified Stream API -
+Expands on Stream API with new methods for creating and manipulating streams more efficiently.
+
+        Stream.of("apple", "banana", "cherry")
+        .filter(s -> s.length() > 5)
+        .forEach(System.out::println);
+
+11. JEP 524: Foreign Function & Memory API (Second Incubator) -
+This API allows Java programs to interact with code and memory outside of the JVM (e.g., native code), enabling more flexible and high-performance applications.
+
+        MemorySegment segment = MemorySegment.allocateNative(100);
+
+12. JEP 527: Foreign Linker API (Incubator)
+Continues to incubate a set of APIs that allows Java to link and call functions from native libraries efficiently.
+
+        Linker linker = Linker.nativeLinker();
+
+13. JEP 528: JFR Event Streaming (Incubator) -
+Introduces an API for streaming Java Flight Recorder events, enabling better monitoring and diagnostics of Java applications in production environments.
+
+14. JEP 530: Vector API (Second Incubator) -
+Adds a high-performance API for vectorized computations, useful for data-heavy applications or those that need to leverage vector instructions on modern CPUs.
+
+        FloatVector vector = FloatVector.fromArray(SPECIES_128, array, 0);
+        vector = vector.mul(2.0f); // Vectorized operation
+
+15. JEP 531: New Default JVM Garbage Collection Algorithm -
+Introduces a new default garbage collection algorithm that improves performance and reduces latency for large-scale applications.
+
+16. JEP 532: Replace RMI with gRPC -
+Introduces gRPC (a high-performance RPC framework) as a replacement for the old RMI (Remote Method Invocation) API.
+
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
+
+17. JEP 533: Performance Improvements to the JVM's Heap Management -
+Various JVM performance improvements for heap management, which will reduce memory overhead and optimize garbage collection.
+
+18. JEP 534: Enhanced Javadoc (Preview) -
+Continues to improve the Javadoc tool by adding enhanced markup capabilities and better rendering features, with a focus on making it more readable and navigable.
+
+        /**
+        * This method calculates the sum of two integers.
+        *
+        * @param a the first integer
+        * @param b the second integer
+        * @return the sum of `a` and `b`
+        */
+        public int add(int a, int b) {
+            return a + b;
+        }
+
+Main features: Primitive Types in Patterns and instanceof and switch, Module Import Declarations, Compact Source Files and Instance Main Methods, Flexible Constructor Bodies, Scoped Values, Ahead-of-Time (AOT) Method Profiling, Compact Object Headers
