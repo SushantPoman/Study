@@ -103,3 +103,14 @@
 - RAG pipelines for production
 
 https://www.youtube.com/playlist?list=PL0zysOflRCen1TeDUm-ebl9T-WbJygCGE
+
+
+
+
+SushantPoman
+
+CAPE PUNE EXP (16382)
+
+Book only if confirm berths are allotted 
+
+Pay through BHIM/UPI
