@@ -32,5 +32,74 @@
 15. https://leetcode.com/problems/fizz-buzz/description/                            - Session 23
 16. https://leetcode.com/problems/maximum-subarray/description/                     - Session 23
 17. https://leetcode.com/problems/01-matrix/description/                            - Session 23
-18. https://leetcode.com/problems/next-permutation/description/                      - Session 23
-19. 
+18. https://leetcode.com/problems/next-permutation/description/                     - Session 23
+19. https://leetcode.com/problems/single-number-ii/description/                     - Session 24
+
+
+### AND (&) operator
+The bitwise AND operator compares two numbers bit by bit.
+
+Rule:
+
+        Bit A	Bit B	A & B
+        0	0	    0
+        0	1	    0
+        1   	0	    0
+        1	1	    1
+
+The result is 1 only if both bits are 1.
+
+### OR operator (|)
+The OR operator follows these rules:
+
+        Bit A	Bit B	A | B
+        0	0	0
+        0	1	1
+        1	0	1
+        1	1	1      
+
+A bit becomes 1 if either bit is 1.
+
+### NOT operator (~)
+
+The NOT operator works on one bit (it is a unary operator).
+
+        Bit A	   ~A
+        0	    1
+        1	    0
+
+### XOR operator (^)
+The XOR (Exclusive OR) operator follows these rules:
+
+        Bit A	Bit B	A ^ B
+        0	0	0
+        0	1	1
+        1	0	1
+        1	1	0
+
+A bit becomes 1 only if the two bits are different.
+
+### Bitmasking
+- Bitmasking is a technique of using binary numbers (bits) and bitwise operators (&, |, ^, ~, <<, >>) to manipulate individual bits of a number.
+- Think of a number as a collection of ON/OFF switches.
+
+### Quick Memory Tricks
+
+        Operator	Meaning	        Think of it as
+        &	        AND	        Check/Filter bits
+        |	        OR	        Turn a bit ON
+        ^	        XOR	        Flip (Toggle) a bit
+        ~	        NOT	        Reverse every bit
+        <<	        Left Shift	Move left (×2)
+        >>	        Right Shift	Move right (÷2)
+
+### One-line intuition
+
+- Bitmasking → Manipulate individual bits.
+- & → "Is this bit ON?"
+- \| → "Turn this bit ON."
+- ^ → "Change ON to OFF or OFF to ON."
+- ~ → "Flip every bit."
+- << → "Move bits left (multiply by 2 for positive numbers)."
+- >> → "Move bits right (divide by 2 for positive numbers)."
+
