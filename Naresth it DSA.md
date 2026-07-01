@@ -29,11 +29,15 @@
 12. https://leetcode.com/problems/house-robber/description/                         -   Session 20   (HW)
 13. https://leetcode.com/problems/single-number/description/                        -   Session 22        Bit Manipulation
 14. https://docs.google.com/forms/d/e/1FAIpQLSfbjBqf4TxZD9E7ty8V6_h8o0ydjPt-taiQHC7nfXJ97iNj_w/viewform - Mock Test Array - Session 23
-15. https://leetcode.com/problems/fizz-buzz/description/                            - Session 23
-16. https://leetcode.com/problems/maximum-subarray/description/                     - Session 23
-17. https://leetcode.com/problems/01-matrix/description/                            - Session 23
-18. https://leetcode.com/problems/next-permutation/description/                     - Session 23
-19. https://leetcode.com/problems/single-number-ii/description/                     - Session 24
+15. https://leetcode.com/problems/fizz-buzz/description/                            -   Session 23
+16. https://leetcode.com/problems/maximum-subarray/description/                     -   Session 23
+17. https://leetcode.com/problems/01-matrix/description/                            -   Session 23
+18. https://leetcode.com/problems/next-permutation/description/                     -   Session 23
+19. https://leetcode.com/problems/single-number-ii/description/                     -   Session 24
+20. https://leetcode.com/problems/number-of-even-and-odd-bits/description/          -   Session 25   (HW)
+21. https://leetcode.com/problems/counting-bits/description/                        -   Session 25   (HW)
+22. https://leetcode.com/problems/binary-number-with-alternating-bits/description/  -   Session 25   (HW)
+23. https://leetcode.com/problems/sum-of-all-subset-xor-totals/description/         -   Session 25
 
 
 ### AND (&) operator
